@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://viktoriyahristova888-commits.github.io/irenabeautystudio/sitemap.xml
