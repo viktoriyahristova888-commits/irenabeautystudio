@@ -139,8 +139,12 @@ h1,h2,h3{font-family:var(--serif);font-weight:500;text-wrap:balance;margin:0}
 }
 
 /* extensions spotlight */
-.swatch-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:28px}
+.swatch-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:14px}
 .swatch{width:100%;aspect-ratio:9/16;object-fit:cover;border:1px solid var(--line);background:var(--dark);display:block}
+.process-strip{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:28px}
+.process-clip{position:relative;border:1px solid var(--line);background:var(--dark)}
+.process-clip video{width:100%;aspect-ratio:4/5;object-fit:cover;display:block}
+.process-clip__label{position:absolute;bottom:0;left:0;right:0;padding:8px 10px;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--cream);background:linear-gradient(transparent,rgba(23,21,19,.85))}
 .extensions-proof{display:grid;grid-template-columns:auto 1fr;gap:32px;align-items:center}
 .ba-preview{position:relative;display:grid;grid-template-columns:1fr 1fr;width:220px;border:1px solid var(--line);overflow:hidden;flex-shrink:0}
 .ba-preview img{width:100%;height:100%;object-fit:cover;aspect-ratio:3/4}
@@ -194,6 +198,7 @@ footer a:hover{color:var(--gold)}
 }
 @media(max-width:600px){
   .swatch-strip{grid-template-columns:repeat(2,1fr)}
+  .process-strip{grid-template-columns:1fr}
 }
 @media(max-width:760px){
   .top{padding:0 20px;height:56px}
@@ -273,10 +278,25 @@ footer a:hover{color:var(--gold)}
   </div>
 
   <div class="swatch-strip">
-    <video class="swatch" src="videos/swatch/swatch-1.mp4" poster="videos/swatch/swatch-1-poster.jpg" autoplay muted loop playsinline></video>
-    <video class="swatch" src="videos/swatch/swatch-2.mp4" poster="videos/swatch/swatch-2-poster.jpg" autoplay muted loop playsinline></video>
-    <video class="swatch" src="videos/swatch/swatch-3.mp4" poster="videos/swatch/swatch-3-poster.jpg" autoplay muted loop playsinline></video>
-    <video class="swatch" src="videos/swatch/swatch-4.mp4" poster="videos/swatch/swatch-4-poster.jpg" autoplay muted loop playsinline></video>
+    <video class="swatch" data-src="videos/swatch/swatch-1.mp4" poster="videos/swatch/swatch-1-poster.jpg" muted loop playsinline preload="none"></video>
+    <video class="swatch" data-src="videos/swatch/swatch-2.mp4" poster="videos/swatch/swatch-2-poster.jpg" muted loop playsinline preload="none"></video>
+    <video class="swatch" data-src="videos/swatch/swatch-3.mp4" poster="videos/swatch/swatch-3-poster.jpg" muted loop playsinline preload="none"></video>
+    <video class="swatch" data-src="videos/swatch/swatch-4.mp4" poster="videos/swatch/swatch-4-poster.jpg" muted loop playsinline preload="none"></video>
+    <video class="swatch" data-src="videos/swatch/swatch-5.mp4" poster="videos/swatch/swatch-5-poster.jpg" muted loop playsinline preload="none"></video>
+    <video class="swatch" data-src="videos/swatch/swatch-6.mp4" poster="videos/swatch/swatch-6-poster.jpg" muted loop playsinline preload="none"></video>
+    <video class="swatch" data-src="videos/swatch/swatch-7.mp4" poster="videos/swatch/swatch-7-poster.jpg" muted loop playsinline preload="none"></video>
+    <video class="swatch" data-src="videos/swatch/swatch-8.mp4" poster="videos/swatch/swatch-8-poster.jpg" muted loop playsinline preload="none"></video>
+  </div>
+
+  <div class="process-strip">
+    <div class="process-clip">
+      <video data-src="videos/process/process-1.mp4" poster="videos/process/process-1-poster.jpg" muted loop playsinline preload="none"></video>
+      <span class="process-clip__label">На живо в салона</span>
+    </div>
+    <div class="process-clip">
+      <video data-src="videos/process/process-2.mp4" poster="videos/process/process-2-poster.jpg" muted loop playsinline preload="none"></video>
+      <span class="process-clip__label">На живо в салона</span>
+    </div>
   </div>
 
   <div class="extensions-proof">
@@ -527,6 +547,23 @@ if (!reduceMotion && 'IntersectionObserver' in window) {
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 } else {
   document.querySelectorAll('.reveal').forEach(el => el.classList.add('is-visible'));
+}
+
+const lazyVideos = document.querySelectorAll('video[data-src]');
+if ('IntersectionObserver' in window) {
+  const vio = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const v = e.target;
+      v.src = v.dataset.src;
+      v.removeAttribute('data-src');
+      if (!reduceMotion) v.play().catch(() => {});
+      vio.unobserve(v);
+    });
+  }, {threshold: .2});
+  lazyVideos.forEach(v => vio.observe(v));
+} else {
+  lazyVideos.forEach(v => { v.src = v.dataset.src; v.removeAttribute('data-src'); });
 }
 </script>
 </body>
