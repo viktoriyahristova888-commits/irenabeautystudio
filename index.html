@@ -158,16 +158,6 @@ dialog.video-lightbox video{width:100%;display:block;max-height:88vh}
 .extensions-proof__text{max-width:420px}
 .extensions-proof__text .lead{margin-top:0}
 
-/* tech feature (sticky scroll) */
-.tech-feature{display:grid;grid-template-columns:1fr 1fr;gap:60px;margin:64px 0 8px;align-items:start}
-.tech-feature__sticky{position:sticky;top:82px}
-.tech-feature__sticky img{width:100%;border:1px solid var(--line);display:block}
-.tech-feature__steps{display:flex;flex-direction:column;gap:32vh}
-.tech-feature__steps>div:first-child{padding-top:4vh}
-.tech-feature__step{max-width:380px}
-.tech-feature__step h3{font-size:clamp(1.4rem,2.4vw,1.9rem);margin-top:8px}
-.tech-feature__step p{color:var(--muted);margin-top:10px;font-size:14px;line-height:1.7}
-
 /* gallery teaser */
 .teaser-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
 .teaser-tile{position:relative;display:block;overflow:hidden;aspect-ratio:3/4;border:1px solid var(--line)}
@@ -220,11 +210,6 @@ footer a:hover{color:var(--gold)}
   .contact-grid{grid-template-columns:1fr;gap:40px}
   .teaser-grid{grid-template-columns:repeat(2,1fr)}
   .extensions-proof{grid-template-columns:1fr;justify-items:center;text-align:center}
-  .tech-feature{grid-template-columns:1fr;gap:24px;margin:40px 0 8px}
-  .tech-feature__sticky{position:static}
-  .tech-feature__steps{gap:28px}
-  .tech-feature__steps>div:first-child{padding-top:0}
-  .tech-feature__step{max-width:none}
 }
 @media(max-width:600px){
   .swatch-strip{grid-template-columns:repeat(2,1fr)}
@@ -333,29 +318,6 @@ footer a:hover{color:var(--gold)}
     <div class="extensions-proof__text">
       <p class="lead">Консултация преди всяка процедура — определяме метод, дължина и количество коса според твоята.</p>
       <a class="btn btn--gold" href="#contact">Запази консултация ↗</a>
-    </div>
-  </div>
-
-  <div class="tech-feature">
-    <div class="tech-feature__sticky">
-      <img src="images/vlight-tech.webp" alt="V-Light UV технология за екстеншъни" width="1200" height="1460" loading="lazy">
-    </div>
-    <div class="tech-feature__steps">
-      <div class="tech-feature__step reveal">
-        <div class="kicker">Метод</div>
-        <h3>UV светлина, не топлина</h3>
-        <p>Връзката между косъмите се втвърдява с UV лампа — без нагряване, без лепило.</p>
-      </div>
-      <div class="tech-feature__step reveal">
-        <div class="kicker">Резултат</div>
-        <h3>Лека и незабележима</h3>
-        <p>Фината връзка не се усеща и не се вижда — косата пада естествено.</p>
-      </div>
-      <div class="tech-feature__step reveal">
-        <div class="kicker">За кого</div>
-        <h3>И за по-тънка коса</h3>
-        <p>Методът е подходящ и за клиенти с фина или изтъняваща естествена коса.</p>
-      </div>
     </div>
   </div>
 </section>
