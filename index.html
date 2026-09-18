@@ -83,8 +83,6 @@ h1,h2,h3{font-family:var(--serif);font-weight:500;text-wrap:balance;margin:0}
 .hero__content{position:relative;max-width:600px}
 .hero h1{font-size:clamp(2.1rem,4.2vw,3.2rem);line-height:1.04;letter-spacing:-.02em;margin-top:12px}
 .hero h1 em{color:var(--gold);font-style:italic}
-.price-teaser{display:flex;flex-wrap:wrap;gap:6px 16px;margin:18px 0 0;font-size:13px;color:var(--cream);font-variant-numeric:tabular-nums}
-.price-teaser b{color:var(--gold);font-weight:600}
 .hero__actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
 
 /* pricing */
@@ -93,7 +91,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:500;text-wrap:balance;margin:0}
 .tab{display:inline-flex;padding:10px 20px;border:1px solid var(--line);border-radius:999px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:.2s}
 .tab:hover{border-color:var(--gold)}
 .vh-radio:focus-visible + .tab{outline:2px solid var(--gold);outline-offset:3px}
-.tab--sm{padding:7px 14px;font-size:10px}
+.tab--sm{padding:11px 14px;font-size:10px}
 .length-select{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:0 0 20px;padding:12px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .length-select__label{font-size:12px;color:var(--muted)}
 .length-select__group{display:flex;gap:8px}
@@ -139,12 +137,20 @@ h1,h2,h3{font-family:var(--serif);font-weight:500;text-wrap:balance;margin:0}
 }
 
 /* extensions spotlight */
-.swatch-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:14px}
-.swatch{width:100%;aspect-ratio:9/16;object-fit:cover;border:1px solid var(--line);background:var(--dark);display:block}
+.swatch-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:14px}
+.swatch{width:100%;aspect-ratio:9/16;object-fit:cover;border:1px solid var(--line);background:var(--dark);display:block;cursor:pointer;transition:opacity .2s}
+.swatch:hover{opacity:.85}
 .process-strip{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:28px}
 .process-clip{position:relative;border:1px solid var(--line);background:var(--dark)}
-.process-clip video{width:100%;aspect-ratio:4/5;object-fit:cover;display:block}
-.process-clip__label{position:absolute;bottom:0;left:0;right:0;padding:8px 10px;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--cream);background:linear-gradient(transparent,rgba(23,21,19,.85))}
+.process-clip video{width:100%;aspect-ratio:4/5;object-fit:cover;display:block;cursor:pointer;transition:opacity .2s}
+.process-clip video:hover{opacity:.85}
+
+/* video lightbox */
+dialog.video-lightbox{border:0;padding:0;background:transparent;max-width:min(92vw,480px);margin:auto}
+dialog.video-lightbox::backdrop{background:rgba(10,9,8,.92)}
+dialog.video-lightbox video{width:100%;display:block;max-height:88vh}
+.video-lightbox__close{position:fixed;top:24px;right:24px;background:rgba(23,21,19,.7);color:var(--cream);border:1px solid var(--line);width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;cursor:pointer}
+.video-lightbox__close:hover{border-color:var(--gold);color:var(--gold)}
 .extensions-proof{display:grid;grid-template-columns:auto 1fr;gap:32px;align-items:center}
 .ba-preview{position:relative;display:grid;grid-template-columns:1fr 1fr;width:220px;border:1px solid var(--line);overflow:hidden;flex-shrink:0}
 .ba-preview img{width:100%;height:100%;object-fit:cover;aspect-ratio:3/4}
@@ -186,6 +192,15 @@ h1,h2,h3{font-family:var(--serif);font-weight:500;text-wrap:balance;margin:0}
 .form input:focus,.form select:focus,.form textarea:focus{border-color:var(--gold)}
 .form__msg{display:none;font-size:13px;color:#dfbe91;padding-top:6px}
 .form__msg.show{display:block}
+
+/* faq */
+.faq{max-width:760px;margin:0 auto}
+.faq details{border-bottom:1px solid var(--line);padding:18px 0}
+.faq summary{cursor:pointer;font:500 17px var(--serif);color:var(--cream);list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:'+';color:var(--gold);font-size:22px;font-family:var(--sans);font-weight:300;transition:transform .2s;flex-shrink:0}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{color:var(--muted);margin:12px 0 0;font-size:14px;line-height:1.6;max-width:60ch}
 
 footer{padding:36px 40px;text-align:center;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}
 footer a:hover{color:var(--gold)}
@@ -235,7 +250,7 @@ footer a:hover{color:var(--gold)}
     "opens": "10:00",
     "closes": "20:00"
   },
-  "sameAs": ["https://www.facebook.com/profile.php?id=61592300043325"]
+  "sameAs": ["https://www.facebook.com/profile.php?id=61592300043325", "https://www.google.com/maps/place/Irena+Beauty+Studio/@42.4995129,27.4697753,17z/data=!3m1!4b1!4m6!3m5!1s0x40a69512928afc09:0x32889e9de14c91b3!8m2!3d42.4995129!4d27.4697753!16s%2Fg%2F11ntpxrgth"]
 }
 </script>
 </head>
@@ -262,7 +277,6 @@ footer a:hover{color:var(--gold)}
     <div class="kicker">Бургас · ул. „Любен Каравелов“ 15</div>
     <h1>Irena <em>Beauty</em> Studio</h1>
     <p class="lead">Екстеншъни от естествена коса, професионална грижа и услуги за коса, нокти и педикюр.</p>
-    <p class="price-teaser">Подстригване от <b>€10</b> · Маникюр от <b>€10</b> · Педикюр от <b>€5</b></p>
     <div class="hero__actions">
       <a class="btn btn--gold" href="#contact">Запази час ↗</a>
       <a class="btn" href="gallery.html">Виж галерията</a>
@@ -273,14 +287,12 @@ footer a:hover{color:var(--gold)}
 <section id="extensions" class="section reveal">
   <div class="section-head">
     <div class="kicker">Екстеншъни от естествена коса</div>
-    <h2>Екстеншъни · V-Light UV</h2>
+    <h2>Екстеншъни</h2>
     <p class="section-lead">Естествена коса, прецизен метод, видим резултат.</p>
   </div>
 
   <div class="swatch-strip">
     <video class="swatch" data-src="videos/swatch/swatch-1.mp4" poster="videos/swatch/swatch-1-poster.jpg" muted loop playsinline preload="none"></video>
-    <video class="swatch" data-src="videos/swatch/swatch-2.mp4" poster="videos/swatch/swatch-2-poster.jpg" muted loop playsinline preload="none"></video>
-    <video class="swatch" data-src="videos/swatch/swatch-3.mp4" poster="videos/swatch/swatch-3-poster.jpg" muted loop playsinline preload="none"></video>
     <video class="swatch" data-src="videos/swatch/swatch-4.mp4" poster="videos/swatch/swatch-4-poster.jpg" muted loop playsinline preload="none"></video>
     <video class="swatch" data-src="videos/swatch/swatch-5.mp4" poster="videos/swatch/swatch-5-poster.jpg" muted loop playsinline preload="none"></video>
     <video class="swatch" data-src="videos/swatch/swatch-6.mp4" poster="videos/swatch/swatch-6-poster.jpg" muted loop playsinline preload="none"></video>
@@ -291,11 +303,9 @@ footer a:hover{color:var(--gold)}
   <div class="process-strip">
     <div class="process-clip">
       <video data-src="videos/process/process-1.mp4" poster="videos/process/process-1-poster.jpg" muted loop playsinline preload="none"></video>
-      <span class="process-clip__label">На живо в салона</span>
     </div>
     <div class="process-clip">
       <video data-src="videos/process/process-2.mp4" poster="videos/process/process-2-poster.jpg" muted loop playsinline preload="none"></video>
-      <span class="process-clip__label">На живо в салона</span>
     </div>
   </div>
 
@@ -306,8 +316,8 @@ footer a:hover{color:var(--gold)}
       <span class="ba-preview__label">Преди / След ↗</span>
     </a>
     <div class="extensions-proof__text">
-      <p class="lead">Безплатна консултация преди всяка процедура — определяме метод, дължина и количество коса според твоята.</p>
-      <a class="btn btn--gold" href="#contact">Запази безплатна консултация ↗</a>
+      <p class="lead">Консултация преди всяка процедура — определяме метод, дължина и количество коса според твоята.</p>
+      <a class="btn btn--gold" href="#contact">Запази консултация ↗</a>
     </div>
   </div>
 </section>
@@ -316,7 +326,7 @@ footer a:hover{color:var(--gold)}
   <div class="section-head">
     <div class="kicker">Цени</div>
     <h2>Цени</h2>
-    <p class="section-lead">Всички цени са в евро. Крайната цена за екстеншъни се определя на безплатна консултация според метода и количеството коса.</p>
+    <p class="section-lead">Всички цени са в евро. Крайната цена за екстеншъни се определя на консултация според метода и количеството коса.</p>
   </div>
 
   <div class="price-tabs">
@@ -433,7 +443,7 @@ footer a:hover{color:var(--gold)}
           <li class="price-row"><span class="service-name">Поддръжка</span><span class="price">от €60</span></li>
           <li class="price-row"><span class="service-name">Сваляне</span><span class="price">от €30</span></li>
         </ul>
-        <p class="note">Точната цена зависи от метода, дължината и количеството коса — определя се на безплатната консултация.</p>
+        <p class="note">Точната цена зависи от метода, дължината и количеството коса — определя се на консултацията.</p>
       </div>
 
     </div>
@@ -457,17 +467,41 @@ footer a:hover{color:var(--gold)}
 <section id="studio" class="section section--alt reveal">
   <div class="section-head">
     <div class="kicker">Продукти и технология</div>
-    <h2>С какво работим</h2>
   </div>
   <div class="studio-grid">
     <figure class="studio-card">
-      <img src="images/produkti-shelf.webp" alt="Рафт с професионални продукти в студиото" width="1000" height="563" loading="lazy">
+      <img src="images/produkti-shelf.webp" alt="Професионални продукти CHI в студиото" width="1000" height="563" loading="lazy">
       <figcaption>Работим с CHI, K18 и други професионални марки.</figcaption>
     </figure>
     <figure class="studio-card">
       <img src="images/vlight-tech.webp" alt="V-Light UV технология за екстеншъни" width="1200" height="1600" loading="lazy">
       <figcaption>V-Light UV технология за екстеншъни от естествена коса.</figcaption>
     </figure>
+  </div>
+</section>
+
+<section id="faq" class="section section--alt reveal">
+  <div class="section-head">
+    <div class="kicker">Въпроси</div>
+    <h2>Често задавани въпроси</h2>
+  </div>
+  <div class="faq">
+    <details>
+      <summary>Как да си запазя час?</summary>
+      <p>През формата по-долу, обаждане на +359 88 286 8822 или съобщение във Viber или Facebook — потвърждаваме възможностите директно.</p>
+    </details>
+    <details>
+      <summary>Какво включва консултацията за екстеншъни?</summary>
+      <p>Определяме метод, дължина и количество коса според твоята коса, преди да пристъпим към самата процедура.</p>
+    </details>
+    <details>
+      <summary>Работите ли в неделя?</summary>
+      <p>Не — работното ни време е понеделник до събота, 10:00–20:00.</p>
+    </details>
+    <details>
+      <summary>Къде се намирате?</summary>
+      <p>В Бургас, ул. „Любен Каравелов“ 15 — картата в контактите по-долу показва точното местоположение.</p>
+    </details>
   </div>
 </section>
 
@@ -483,6 +517,7 @@ footer a:hover{color:var(--gold)}
         <div><dt>Телефон</dt><dd><a href="tel:+359882868822">+359 88 286 8822</a></dd></div>
         <div><dt>Viber</dt><dd><a href="viber://chat?number=%2B359882868822">Пишете ни</a></dd></div>
         <div><dt>Facebook</dt><dd><a href="https://www.facebook.com/profile.php?id=61592300043325" target="_blank" rel="noopener">Irena Beauty Studio</a></dd></div>
+        <div><dt>Google</dt><dd><a href="https://www.google.com/maps/place/Irena+Beauty+Studio/@42.4995129,27.4697753,17z/data=!3m1!4b1!4m6!3m5!1s0x40a69512928afc09:0x32889e9de14c91b3!8m2!3d42.4995129!4d27.4697753!16s%2Fg%2F11ntpxrgth" target="_blank" rel="noopener">Остави отзив ↗</a></dd></div>
       </dl>
       <div class="map-embed">
         <iframe src="https://www.google.com/maps?q=Irena%20Beauty%20Studio%2C%20%D1%83%D0%BB.%20%D0%9B%D1%8E%D0%B1%D0%B5%D0%BD%20%D0%9A%D0%B0%D1%80%D0%B0%D0%B2%D0%B5%D0%BB%D0%BE%D0%B2%2015%2C%20%D0%91%D1%83%D1%80%D0%B3%D0%B0%D1%81&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Карта с местоположението на Irena Beauty Studio"></iframe>
@@ -513,8 +548,13 @@ footer a:hover{color:var(--gold)}
 </section>
 
 <footer>
-  Irena Beauty Studio · Бургас, ул. „Любен Каравелов“ 15 · <a href="tel:+359882868822">+359 88 286 8822</a> · <a href="viber://chat?number=%2B359882868822">Viber</a> · <a href="https://www.facebook.com/profile.php?id=61592300043325" target="_blank" rel="noopener">Facebook</a>
+  Irena Beauty Studio · Бургас, ул. „Любен Каравелов“ 15 · <a href="tel:+359882868822">+359 88 286 8822</a> · <a href="viber://chat?number=%2B359882868822">Viber</a> · <a href="https://www.facebook.com/profile.php?id=61592300043325" target="_blank" rel="noopener">Facebook</a> · <a href="https://www.google.com/maps/place/Irena+Beauty+Studio/@42.4995129,27.4697753,17z/data=!3m1!4b1!4m6!3m5!1s0x40a69512928afc09:0x32889e9de14c91b3!8m2!3d42.4995129!4d27.4697753!16s%2Fg%2F11ntpxrgth" target="_blank" rel="noopener">Google отзиви</a>
 </footer>
+
+<dialog class="video-lightbox" id="videoLightbox">
+  <video id="videoLightboxPlayer" muted loop playsinline controls></video>
+</dialog>
+<button class="video-lightbox__close" id="vlClose" aria-label="Затвори" hidden>&times;</button>
 
 <script>
 document.getElementById('bookForm').addEventListener('submit', async e => {
@@ -548,6 +588,32 @@ if (!reduceMotion && 'IntersectionObserver' in window) {
 } else {
   document.querySelectorAll('.reveal').forEach(el => el.classList.add('is-visible'));
 }
+
+const vl = document.getElementById('videoLightbox');
+const vlPlayer = document.getElementById('videoLightboxPlayer');
+const vlClose = document.getElementById('vlClose');
+function openVideoLightbox(src, poster) {
+  vlPlayer.src = src;
+  if (poster) vlPlayer.poster = poster;
+  vl.showModal();
+  vlClose.hidden = false;
+  vlPlayer.play().catch(() => {});
+}
+function closeVideoLightbox() {
+  vl.close();
+  vlPlayer.pause();
+  vlPlayer.removeAttribute('src');
+  vlClose.hidden = true;
+}
+document.querySelectorAll('.swatch, .process-clip video').forEach(v => {
+  v.addEventListener('click', () => {
+    const src = v.dataset.src || v.currentSrc || v.src;
+    if (src) openVideoLightbox(src, v.getAttribute('poster'));
+  });
+});
+vlClose.addEventListener('click', closeVideoLightbox);
+vl.addEventListener('click', e => { if (e.target === vl) closeVideoLightbox(); });
+vl.addEventListener('cancel', closeVideoLightbox);
 
 const lazyVideos = document.querySelectorAll('video[data-src]');
 if ('IntersectionObserver' in window) {
