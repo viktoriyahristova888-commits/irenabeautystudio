@@ -63,7 +63,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:500;text-wrap:balance;margin:0}
 .logo em{color:var(--gold);font-style:italic}
 .top__nav{display:flex;gap:30px;flex:1;justify-content:center}
 .top__nav a{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#c7bbad}
-.top__nav a:hover{color:var(--gold)}
+.top__nav a:hover,.top__nav a.active{color:var(--gold)}
 .top__actions{display:flex;align-items:center;gap:16px}
 .top__phone{font-size:12px;color:var(--cream);white-space:nowrap}
 .top__phone:hover{color:var(--gold)}
@@ -158,6 +158,16 @@ dialog.video-lightbox video{width:100%;display:block;max-height:88vh}
 .extensions-proof__text{max-width:420px}
 .extensions-proof__text .lead{margin-top:0}
 
+/* tech feature (sticky scroll) */
+.tech-feature{display:grid;grid-template-columns:1fr 1fr;gap:60px;margin:64px 0 8px;align-items:start}
+.tech-feature__sticky{position:sticky;top:82px}
+.tech-feature__sticky img{width:100%;border:1px solid var(--line);display:block}
+.tech-feature__steps{display:flex;flex-direction:column;gap:32vh}
+.tech-feature__steps>div:first-child{padding-top:4vh}
+.tech-feature__step{max-width:380px}
+.tech-feature__step h3{font-size:clamp(1.4rem,2.4vw,1.9rem);margin-top:8px}
+.tech-feature__step p{color:var(--muted);margin-top:10px;font-size:14px;line-height:1.7}
+
 /* gallery teaser */
 .teaser-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
 .teaser-tile{position:relative;display:block;overflow:hidden;aspect-ratio:3/4;border:1px solid var(--line)}
@@ -165,7 +175,7 @@ dialog.video-lightbox video{width:100%;display:block;max-height:88vh}
 .teaser-tile:hover img{transform:scale(1.045)}
 
 /* scroll reveal */
-.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s cubic-bezier(.2,.8,.2,1)}
+.reveal{opacity:0;transform:translateY(22px) scale(.985);transition:opacity .7s ease,transform .7s cubic-bezier(.16,.8,.2,1)}
 .reveal.is-visible{opacity:1;transform:none}
 
 /* studio / products */
@@ -210,6 +220,11 @@ footer a:hover{color:var(--gold)}
   .contact-grid{grid-template-columns:1fr;gap:40px}
   .teaser-grid{grid-template-columns:repeat(2,1fr)}
   .extensions-proof{grid-template-columns:1fr;justify-items:center;text-align:center}
+  .tech-feature{grid-template-columns:1fr;gap:24px;margin:40px 0 8px}
+  .tech-feature__sticky{position:static}
+  .tech-feature__steps{gap:28px}
+  .tech-feature__steps>div:first-child{padding-top:0}
+  .tech-feature__step{max-width:none}
 }
 @media(max-width:600px){
   .swatch-strip{grid-template-columns:repeat(2,1fr)}
@@ -318,6 +333,29 @@ footer a:hover{color:var(--gold)}
     <div class="extensions-proof__text">
       <p class="lead">Консултация преди всяка процедура — определяме метод, дължина и количество коса според твоята.</p>
       <a class="btn btn--gold" href="#contact">Запази консултация ↗</a>
+    </div>
+  </div>
+
+  <div class="tech-feature">
+    <div class="tech-feature__sticky">
+      <img src="images/vlight-tech.webp" alt="V-Light UV технология за екстеншъни" width="1200" height="1460" loading="lazy">
+    </div>
+    <div class="tech-feature__steps">
+      <div class="tech-feature__step reveal">
+        <div class="kicker">Метод</div>
+        <h3>UV светлина, не топлина</h3>
+        <p>Връзката между косъмите се втвърдява с UV лампа — без нагряване, без лепило.</p>
+      </div>
+      <div class="tech-feature__step reveal">
+        <div class="kicker">Резултат</div>
+        <h3>Лека и незабележима</h3>
+        <p>Фината връзка не се усеща и не се вижда — косата пада естествено.</p>
+      </div>
+      <div class="tech-feature__step reveal">
+        <div class="kicker">За кого</div>
+        <h3>И за по-тънка коса</h3>
+        <p>Методът е подходящ и за клиенти с фина или изтъняваща естествена коса.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -474,7 +512,7 @@ footer a:hover{color:var(--gold)}
       <figcaption>Работим с CHI, K18 и други професионални марки.</figcaption>
     </figure>
     <figure class="studio-card">
-      <img src="images/vlight-tech.webp" alt="V-Light UV технология за екстеншъни" width="1200" height="1600" loading="lazy">
+      <img src="images/vlight-tech.webp" alt="V-Light UV технология за екстеншъни" width="1200" height="1460" loading="lazy">
       <figcaption>V-Light UV технология за екстеншъни от естествена коса.</figcaption>
     </figure>
   </div>
@@ -492,11 +530,15 @@ footer a:hover{color:var(--gold)}
     </details>
     <details>
       <summary>Какво включва консултацията за екстеншъни?</summary>
-      <p>Определяме метод, дължина и количество коса според твоята коса, преди да пристъпим към самата процедура.</p>
+      <p>Определяме метод, дължина и количество коса според твоята. Обсъждаме заедно цвят, текстура и очакван резултат, преди да запазим дата за самата процедура.</p>
     </details>
     <details>
-      <summary>Работите ли в неделя?</summary>
-      <p>Не — работното ни време е понеделник до събота, 10:00–20:00.</p>
+      <summary>Какво е V-Light UV методът?</summary>
+      <p>Връзката между косъмите се втвърдява с UV светлина, вместо с топлина или лепило. Резултатът е лека и незабележима връзка — метод, подходящ и за по-тънка естествена коса.</p>
+    </details>
+    <details>
+      <summary>Как се грижа за екстеншъните?</summary>
+      <p>Разресвай внимателно от краищата нагоре и избягвай масла и силикони близо до връзката. Препоръчваме редовна поддръжка в салона, за да останат чисти и здрави.</p>
     </details>
     <details>
       <summary>Къде се намирате?</summary>
@@ -614,6 +656,18 @@ document.querySelectorAll('.swatch, .process-clip video').forEach(v => {
 vlClose.addEventListener('click', closeVideoLightbox);
 vl.addEventListener('click', e => { if (e.target === vl) closeVideoLightbox(); });
 vl.addEventListener('cancel', closeVideoLightbox);
+
+const navLinks = document.querySelectorAll('.top__nav a[href^="#"]');
+const navSections = [...navLinks].map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+if (navSections.length && 'IntersectionObserver' in window) {
+  const spy = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id));
+    });
+  }, {rootMargin: '-40% 0px -55% 0px'});
+  navSections.forEach(s => spy.observe(s));
+}
 
 const lazyVideos = document.querySelectorAll('video[data-src]');
 if ('IntersectionObserver' in window) {
