@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="bg">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Екстеншъни — Irena Beauty Studio</title>
+<meta name="description" content="Екстеншъни от естествена коса в Irena Beauty Studio, Бургас — V-Light UV, кератинови кичури и капси. Консултация преди всяка процедура.">
+<link rel="canonical" href="https://viktoriyahristova888-commits.github.io/irenabeautystudio/extensions.html">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" href="favicon-32x32.png" type="image/png" sizes="32x32">
+<link rel="icon" href="favicon-16x16.png" type="image/png" sizes="16x16">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#171513">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Irena Beauty Studio">
+<meta property="og:title" content="Екстеншъни — Irena Beauty Studio">
+<meta property="og:description" content="Екстеншъни от естествена коса — V-Light UV, кератинови кичури и капси. Консултация преди всяка процедура.">
+<meta property="og:image" content="https://viktoriyahristova888-commits.github.io/irenabeautystudio/images/og-image.jpg">
+<meta property="og:url" content="https://viktoriyahristova888-commits.github.io/irenabeautystudio/extensions.html">
+<meta property="og:locale" content="bg_BG">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Екстеншъни — Irena Beauty Studio">
+<meta name="twitter:image" content="https://viktoriyahristova888-commits.github.io/irenabeautystudio/images/og-image.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+.swatch-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:14px}
+.swatch{width:100%;aspect-ratio:9/16;object-fit:cover;border:1px solid var(--line);background:var(--dark);display:block}
+.process-strip{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:28px}
+.process-clip{position:relative;border:1px solid var(--line);background:var(--dark)}
+.process-clip video{width:100%;aspect-ratio:4/5;object-fit:cover;display:block}
+.extensions-proof{display:grid;grid-template-columns:auto 1fr;gap:32px;align-items:center}
+.ba-preview{position:relative;display:grid;grid-template-columns:1fr 1fr;width:220px;border:1px solid var(--line);overflow:hidden;flex-shrink:0}
+.ba-preview img{width:100%;height:100%;object-fit:cover;aspect-ratio:3/4}
+.ba-preview__label{position:absolute;bottom:0;left:0;right:0;padding:6px;text-align:center;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--cream);background:linear-gradient(transparent,rgba(23,21,19,.85))}
+.extensions-proof__text{max-width:420px}
+.extensions-proof__text .lead{margin-top:0}
+
+.studio-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:20px}
+.studio-card{position:relative;margin:0;overflow:hidden;border:1px solid var(--line)}
+.studio-card img{width:100%;height:100%;object-fit:cover}
+.studio-card figcaption{padding:16px 18px;font-size:13px;color:var(--muted);background:var(--black)}
+
+.faq{max-width:760px;margin:0 auto}
+.faq details{border-bottom:1px solid var(--line);padding:18px 0}
+.faq summary{cursor:pointer;font:500 17px var(--serif);color:var(--cream);list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:'+';color:var(--gold);font-size:22px;font-family:var(--sans);font-weight:300;transition:transform .2s;flex-shrink:0}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{color:var(--muted);margin:12px 0 0;font-size:14px;line-height:1.6;max-width:60ch}
+
+@media(max-width:900px){
+  .studio-grid{grid-template-columns:1fr}
+  .extensions-proof{grid-template-columns:1fr;justify-items:center;text-align:center}
+}
+@media(max-width:600px){
+  .swatch-strip{grid-template-columns:repeat(2,1fr)}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <a class="logo" href="index.html">Irena <em>Beauty</em></a>
+  <nav class="top__nav" aria-label="Основна навигация">
+    <a href="extensions.html" aria-current="page">Екстеншъни</a>
+    <a href="pricing.html">Цени</a>
+    <a href="gallery.html">Галерия</a>
+    <a href="contact.html">Контакти</a>
+  </nav>
+  <div class="top__actions">
+    <a class="top__phone" href="tel:+359882868822">+359 88 286 8822</a>
+    <a class="btn btn--gold btn--sm" href="contact.html">Запази час</a>
+  </div>
+</header>
+
+<div class="page-head reveal">
+  <div class="kicker">Екстеншъни от естествена коса</div>
+  <h1>Екстеншъни</h1>
+  <p class="lead">Естествена коса, прецизен метод, видим резултат.</p>
+</div>
+
+<section class="section reveal">
+  <div class="swatch-strip">
+    <video class="swatch" data-src="videos/swatch/swatch-1.mp4" poster="videos/swatch/swatch-1-poster.jpg" muted loop playsinline preload="none"></video>
+    <video class="swatch" data-src="videos/swatch/swatch-4.mp4" poster="videos/swatch/swatch-4-poster.jpg" muted loop playsinline preload="none"></video>
+    <video class="swatch" data-src="videos/swatch/swatch-5.mp4" poster="videos/swatch/swatch-5-poster.jpg" muted loop playsinline preload="none"></video>
+    <video class="swatch" data-src="videos/swatch/swatch-6.mp4" poster="videos/swatch/swatch-6-poster.jpg" muted loop playsinline preload="none"></video>
+    <video class="swatch" data-src="videos/swatch/swatch-7.mp4" poster="videos/swatch/swatch-7-poster.jpg" muted loop playsinline preload="none"></video>
+    <video class="swatch" data-src="videos/swatch/swatch-8.mp4" poster="videos/swatch/swatch-8-poster.jpg" muted loop playsinline preload="none"></video>
+  </div>
+
+  <div class="process-strip">
+    <div class="process-clip">
+      <video data-src="videos/process/process-1.mp4" poster="videos/process/process-1-poster.jpg" muted loop playsinline preload="none"></video>
+    </div>
+    <div class="process-clip">
+      <video data-src="videos/process/process-2.mp4" poster="videos/process/process-2-poster.jpg" muted loop playsinline preload="none"></video>
+    </div>
+  </div>
+
+  <div class="extensions-proof">
+    <a class="ba-preview" href="gallery.html#before-after">
+      <img src="images/gallery/g43.webp" alt="Преди" width="1100" height="1467" loading="lazy">
+      <img src="images/gallery/g41.webp" alt="След" width="1100" height="1467" loading="lazy">
+      <span class="ba-preview__label">Преди / След ↗</span>
+    </a>
+    <div class="extensions-proof__text">
+      <p class="lead">Консултация преди всяка процедура — определяме метод, дължина и количество коса според твоята.</p>
+      <a class="btn btn--gold" href="contact.html">Запази консултация ↗</a>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt reveal">
+  <div class="section-head">
+    <div class="kicker">Продукти и технология</div>
+  </div>
+  <div class="studio-grid">
+    <figure class="studio-card">
+      <img src="images/produkti-shelf.webp" alt="Професионални продукти CHI в студиото" width="1000" height="563" loading="lazy">
+      <figcaption>Работим с CHI, K18 и други професионални марки.</figcaption>
+    </figure>
+    <figure class="studio-card">
+      <img src="images/vlight-tech.webp" alt="V-Light UV технология за екстеншъни" width="1200" height="1460" loading="lazy">
+      <figcaption>V-Light UV технология за екстеншъни от естествена коса.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="section reveal">
+  <div class="section-head">
+    <div class="kicker">Въпроси</div>
+    <h2>Често задавани въпроси</h2>
+  </div>
+  <div class="faq">
+    <details>
+      <summary>Как мога да запазя час?</summary>
+      <p>Можеш да запазиш час чрез формата за записване, на телефон +359 88 286 8822 или с лично съобщение във Viber или Facebook. След като се свържеш с нас, ще уточним удобен за теб ден и час и ще потвърдим записването.</p>
+    </details>
+    <details>
+      <summary>Какво включва консултацията за екстеншъни?</summary>
+      <p>По време на консултацията ще разгледаме състоянието и особеностите на естествената ти коса, за да изберем най-подходящия метод, дължина и количество екстеншъни. Ще обсъдим цвета, структурата и желания от теб резултат. Можеш да разгледаш наличните коси в салона и да избереш своя екстеншън на място. След като уточним всички детайли, ще ти предложим най-подходящото решение и ще обсъдим следващите стъпки.</p>
+    </details>
+    <details>
+      <summary>Какви методи за удължаване на косата предлагате?</summary>
+      <p>Предлагаме няколко метода за поставяне на екстеншъни. Подходящият метод се избира според състоянието на естествената коса, желания резултат и личните ти предпочитания.</p>
+      <p><strong>Кератинови кичури</strong> — При този метод отделни кичури се прикрепят към естествената коса чрез кератинова връзка. Той е подходящ за създаване на естествено изглеждаща дължина и плътност, като позволява прецизно разпределяне на кичурите.</p>
+      <p><strong>Капси</strong> — Екстеншъните се прикрепят към естествената коса чрез малки капси, без използване на лепило. Методът позволява лесно сваляне и подмяна на екстеншъните при необходимата поддръжка.</p>
+      <p><strong>V-Light UV</strong> — При този метод връзката между екстеншъна и естествената коса се фиксира с UV светлина. Така се създава изключително малка и дискретна връзка, което прави метода подходящ и за по-фина коса.</p>
+      <p>По време на консултацията ще ти помогнем да избереш метода, който най-добре отговаря на твоята коса и желания резултат.</p>
+    </details>
+    <details>
+      <summary>Как да се грижа за екстеншъните си?</summary>
+      <p>Правилната грижа е важна както за красивия вид на екстеншъните, така и за поддържането на естествената коса в добро състояние.</p>
+      <p>Не пропускай препоръчителната поддръжка според конкретния метод. Тя е важна за правилното преместване, подмяна или сваляне на екстеншъните, както и за предотвратяване на излишно опъване и заплитане на естествената коса.</p>
+      <p>Разресвай косата внимателно, като започваш от краищата и постепенно се придвижваш към корените. Използвай четка, предназначена за коса с екстеншъни.</p>
+      <p>При миене не търкай агресивно местата на прикрепване. След това подсуши косата добре и преди сън се увери, че е напълно суха. За да ограничиш заплитането, можеш да я прибираш в свободна плитка или ниска опашка.</p>
+      <p>Използвай продукти, подходящи за коса с екстеншъни. Избягвай да нанасяш масла, балсами и други тежки продукти директно върху местата на прикрепване.</p>
+      <p>Когато използваш преса, маша или сешоар, избягвай прекомерната топлина в близост до връзките.</p>
+    </details>
+    <details>
+      <summary>Къде се намира салонът?</summary>
+      <p>гр. Бургас, ул. „Любен Каравелов“ № 15 — картата в контактите по-долу показва точното местоположение.</p>
+    </details>
+  </div>
+</section>
+
+<div class="cta-band reveal">
+  <h2>Готова за консултация?</h2>
+  <p class="lead">Разкажи ни какво искаш да постигнеш — ще уточним метод, дължина и цена заедно.</p>
+  <a class="btn btn--gold" href="contact.html">Запази час ↗</a>
+</div>
+
+<footer>
+  Irena Beauty Studio · Бургас, ул. „Любен Каравелов“ 15 · <a href="tel:+359882868822">+359 88 286 8822</a> · <a href="viber://chat?number=%2B359882868822">Viber</a> · <a href="https://www.facebook.com/profile.php?id=61592300043325" target="_blank" rel="noopener">Facebook</a> · <a href="https://www.google.com/maps/place/Irena+Beauty+Studio/@42.4995129,27.4697753,17z/data=!3m1!4b1!4m6!3m5!1s0x40a69512928afc09:0x32889e9de14c91b3!8m2!3d42.4995129!4d27.4697753!16s%2Fg%2F11ntpxrgth" target="_blank" rel="noopener">Google отзиви</a>
+</footer>
+
+<script>
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if (!reduceMotion && 'IntersectionObserver' in window) {
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); } });
+  }, {threshold: .12});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+} else {
+  document.querySelectorAll('.reveal').forEach(el => el.classList.add('is-visible'));
+}
+
+const lazyVideos = document.querySelectorAll('video[data-src]');
+if ('IntersectionObserver' in window) {
+  const vio = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const v = e.target;
+      v.src = v.dataset.src;
+      v.removeAttribute('data-src');
+      if (!reduceMotion) v.play().catch(() => {});
+      vio.unobserve(v);
+    });
+  }, {threshold: .2});
+  lazyVideos.forEach(v => vio.observe(v));
+} else {
+  lazyVideos.forEach(v => { v.src = v.dataset.src; v.removeAttribute('data-src'); });
+}
+</script>
+</body>
+</html>

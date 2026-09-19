@@ -38,119 +38,21 @@
 .hero h1 em{color:var(--gold);font-style:italic}
 .hero__actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
 
-/* pricing */
-.length-select{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:0 0 20px;padding:12px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.length-select__label{font-size:12px;color:var(--muted)}
-.length-select__group{display:flex;gap:8px}
-.panel-title{font-size:22px;color:var(--gold);margin-bottom:6px}
-.group-title{font:500 19px var(--serif);color:var(--cream);margin:32px 0 2px}
-.group-title:first-of-type{margin-top:0}
-.price-list{list-style:none;margin:0 0 8px;padding:0;border-top:1px solid var(--line)}
-.price-row{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:14px 0;border-bottom:1px solid var(--line)}
-.service-name{font-size:15px}
-.service-name small{display:block;color:var(--muted);font-size:12px;margin-top:3px;line-height:1.4}
-.price{font-family:var(--serif);font-style:italic;color:var(--gold);font-size:16px;white-space:nowrap;font-variant-numeric:tabular-nums}
-.tier-prices{display:flex;gap:16px;flex-wrap:wrap;justify-content:flex-end}
-.tier{font-size:13px;color:var(--muted);white-space:nowrap}
-.tier b{color:var(--cream);font-weight:600;font-variant-numeric:tabular-nums}
-.price-row--addon{border-top:1px dashed var(--gold);margin-top:8px;padding-top:18px}
-.note{font-size:12px;color:var(--muted);max-width:520px;margin-top:20px}
-@supports selector(:has(a)){
-  .price-tabs:has(#cat-hair:checked) .panel--hair{display:block}
-  .price-tabs:has(#cat-mani:checked) .panel--mani{display:block}
-  .price-tabs:has(#cat-pedi:checked) .panel--pedi{display:block}
-  .price-tabs:has(#cat-ext:checked) .panel--ext{display:block}
-  .price-tabs:has(#cat-hair:checked) label[for="cat-hair"],
-  .price-tabs:has(#cat-mani:checked) label[for="cat-mani"],
-  .price-tabs:has(#cat-pedi:checked) label[for="cat-pedi"],
-  .price-tabs:has(#cat-ext:checked) label[for="cat-ext"]{background:var(--gold);border-color:var(--gold);color:#1b1815}
-  .panel--hair:has(#len-short:checked) .tier[data-tier="short"],
-  .panel--hair:has(#len-medium:checked) .tier[data-tier="medium"],
-  .panel--hair:has(#len-long:checked) .tier[data-tier="long"]{color:var(--gold)}
-  .panel--hair:has(#len-short:checked) .tier[data-tier="short"] b,
-  .panel--hair:has(#len-medium:checked) .tier[data-tier="medium"] b,
-  .panel--hair:has(#len-long:checked) .tier[data-tier="long"] b{color:var(--gold);font-size:16px}
-  .panel--hair:has(#len-short:checked) .tier:not([data-tier="short"]),
-  .panel--hair:has(#len-medium:checked) .tier:not([data-tier="medium"]),
-  .panel--hair:has(#len-long:checked) .tier:not([data-tier="long"]){opacity:.4}
-  .length-select__group label[for="len-short"],
-  .length-select__group label[for="len-medium"],
-  .length-select__group label[for="len-long"]{padding:7px 14px}
-  .panel--hair:has(#len-short:checked) .length-select__group label[for="len-short"],
-  .panel--hair:has(#len-medium:checked) .length-select__group label[for="len-medium"],
-  .panel--hair:has(#len-long:checked) .length-select__group label[for="len-long"]{background:var(--gold);border-color:var(--gold);color:#1b1815}
-}
-
-/* extensions spotlight */
-.swatch-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:14px}
-.swatch{width:100%;aspect-ratio:9/16;object-fit:cover;border:1px solid var(--line);background:var(--dark);display:block}
-.process-strip{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:28px}
-.process-clip{position:relative;border:1px solid var(--line);background:var(--dark)}
-.process-clip video{width:100%;aspect-ratio:4/5;object-fit:cover;display:block}
-.extensions-proof{display:grid;grid-template-columns:auto 1fr;gap:32px;align-items:center}
-.ba-preview{position:relative;display:grid;grid-template-columns:1fr 1fr;width:220px;border:1px solid var(--line);overflow:hidden;flex-shrink:0}
-.ba-preview img{width:100%;height:100%;object-fit:cover;aspect-ratio:3/4}
-.ba-preview__label{position:absolute;bottom:0;left:0;right:0;padding:6px;text-align:center;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--cream);background:linear-gradient(transparent,rgba(23,21,19,.85))}
-.extensions-proof__text{max-width:420px}
-.extensions-proof__text .lead{margin-top:0}
-
-/* gallery teaser */
-.teaser-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-.teaser-tile{position:relative;display:block;overflow:hidden;aspect-ratio:3/4;border:1px solid var(--line)}
-.teaser-tile img{width:100%;height:100%;object-fit:cover;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
-.teaser-tile:hover img{transform:scale(1.045)}
-
-/* studio / products */
-.studio-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:20px}
-.studio-card{position:relative;margin:0;overflow:hidden;border:1px solid var(--line)}
-.studio-card img{width:100%;height:100%;object-fit:cover}
-.studio-card figcaption{padding:16px 18px;font-size:13px;color:var(--muted);background:var(--black)}
-
-/* contact */
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:start}
-.contact-grid h2{font-size:clamp(1.8rem,3.6vw,2.6rem);margin-top:10px}
-.facts{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:22px 0 0;padding:0;font-size:13px}
-.facts>div{margin:0}
-.facts dt{color:var(--gold);font-size:10px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:5px}
-.facts dd{margin:0}
-.facts a:hover{color:var(--gold)}
-.map-embed{margin-top:22px;border:1px solid var(--line);line-height:0}
-.map-embed iframe{width:100%;height:220px;display:block;filter:invert(92%) hue-rotate(180deg) contrast(90%)}
-.form{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.form label{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#bfb3a6}
-.form label:last-of-type,.form button,.form__msg{grid-column:1/-1}
-.form input,.form select,.form textarea{width:100%;display:block;margin-top:7px;padding:12px;background:#26211e;color:#fff;border:1px solid var(--line);border-radius:2px;font-size:14px;outline:none;font-family:var(--sans)}
-.form textarea{min-height:80px;resize:vertical}
-.form input:focus,.form select:focus,.form textarea:focus{border-color:var(--gold)}
-.form__msg{display:none;font-size:13px;color:#dfbe91;padding-top:6px}
-.form__msg.show{display:block}
-
-/* faq */
-.faq{max-width:760px;margin:0 auto}
-.faq details{border-bottom:1px solid var(--line);padding:18px 0}
-.faq summary{cursor:pointer;font:500 17px var(--serif);color:var(--cream);list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px}
-.faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:'+';color:var(--gold);font-size:22px;font-family:var(--sans);font-weight:300;transition:transform .2s;flex-shrink:0}
-.faq details[open] summary::after{transform:rotate(45deg)}
-.faq details p{color:var(--muted);margin:12px 0 0;font-size:14px;line-height:1.6;max-width:60ch}
+/* funnel — the homepage's only job is to point at the four inner pages */
+.funnel-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.funnel-card{position:relative;display:block;overflow:hidden;aspect-ratio:3/4;border:1px solid var(--line)}
+.funnel-card img{width:100%;height:100%;object-fit:cover;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.funnel-card:hover img{transform:scale(1.045)}
+.funnel-card__label{position:absolute;left:0;right:0;bottom:0;padding:16px}
+.funnel-card__label .kicker{display:block;margin-bottom:4px}
+.funnel-card__label h3{font-size:19px;color:var(--cream)}
+.funnel-card__label:before{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(transparent,rgba(23,21,19,.92))}
 
 @media(max-width:900px){
-  .studio-grid{grid-template-columns:1fr}
-  .contact-grid{grid-template-columns:1fr;gap:40px}
-  .teaser-grid{grid-template-columns:repeat(2,1fr)}
-  .extensions-proof{grid-template-columns:1fr;justify-items:center;text-align:center}
-}
-@media(max-width:600px){
-  .swatch-strip{grid-template-columns:repeat(2,1fr)}
+  .funnel-grid{grid-template-columns:repeat(2,1fr)}
 }
 @media(max-width:760px){
   .hero{padding:84px 20px 40px}
-  .facts{grid-template-columns:1fr}
-  .form{grid-template-columns:1fr}
-  .form label:last-of-type,.form button,.form__msg{grid-column:auto}
-  .price-row{flex-direction:column;align-items:flex-start;gap:6px}
-  .tier-prices{justify-content:flex-start}
-  .map-embed iframe{height:180px}
 }
 </style>
 <script type="application/ld+json">
@@ -181,17 +83,16 @@
 <body>
 
 <header class="top">
-  <a class="logo" href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false">Irena <em>Beauty</em></a>
+  <a class="logo" href="index.html">Irena <em>Beauty</em></a>
   <nav class="top__nav" aria-label="Основна навигация">
-    <a href="#extensions">Екстеншъни</a>
+    <a href="extensions.html">Екстеншъни</a>
+    <a href="pricing.html">Цени</a>
     <a href="gallery.html">Галерия</a>
-    <a href="#pricing">Цени</a>
-    <a href="#studio">Продукти</a>
-    <a href="#contact">Контакти</a>
+    <a href="contact.html">Контакти</a>
   </nav>
   <div class="top__actions">
     <a class="top__phone" href="tel:+359882868822">+359 88 286 8822</a>
-    <a class="btn btn--gold btn--sm" href="#contact">Запази час</a>
+    <a class="btn btn--gold btn--sm" href="contact.html">Запази час</a>
   </div>
 </header>
 
@@ -202,285 +103,34 @@
     <h1>Irena <em>Beauty</em> Studio</h1>
     <p class="lead">Екстеншъни от естествена коса, професионална грижа и услуги за коса, нокти и педикюр.</p>
     <div class="hero__actions">
-      <a class="btn btn--gold" href="#contact">Запази час ↗</a>
+      <a class="btn btn--gold" href="contact.html">Запази час ↗</a>
       <a class="btn" href="gallery.html">Виж галерията</a>
-    </div>
-  </div>
-</section>
-
-<section id="extensions" class="section reveal">
-  <div class="section-head">
-    <div class="kicker">Екстеншъни от естествена коса</div>
-    <h2>Екстеншъни</h2>
-    <p class="section-lead">Естествена коса, прецизен метод, видим резултат.</p>
-  </div>
-
-  <div class="swatch-strip">
-    <video class="swatch" data-src="videos/swatch/swatch-1.mp4" poster="videos/swatch/swatch-1-poster.jpg" muted loop playsinline preload="none"></video>
-    <video class="swatch" data-src="videos/swatch/swatch-4.mp4" poster="videos/swatch/swatch-4-poster.jpg" muted loop playsinline preload="none"></video>
-    <video class="swatch" data-src="videos/swatch/swatch-5.mp4" poster="videos/swatch/swatch-5-poster.jpg" muted loop playsinline preload="none"></video>
-    <video class="swatch" data-src="videos/swatch/swatch-6.mp4" poster="videos/swatch/swatch-6-poster.jpg" muted loop playsinline preload="none"></video>
-    <video class="swatch" data-src="videos/swatch/swatch-7.mp4" poster="videos/swatch/swatch-7-poster.jpg" muted loop playsinline preload="none"></video>
-    <video class="swatch" data-src="videos/swatch/swatch-8.mp4" poster="videos/swatch/swatch-8-poster.jpg" muted loop playsinline preload="none"></video>
-  </div>
-
-  <div class="process-strip">
-    <div class="process-clip">
-      <video data-src="videos/process/process-1.mp4" poster="videos/process/process-1-poster.jpg" muted loop playsinline preload="none"></video>
-    </div>
-    <div class="process-clip">
-      <video data-src="videos/process/process-2.mp4" poster="videos/process/process-2-poster.jpg" muted loop playsinline preload="none"></video>
-    </div>
-  </div>
-
-  <div class="extensions-proof">
-    <a class="ba-preview" href="gallery.html#before-after">
-      <img src="images/gallery/g43.webp" alt="Преди" width="1100" height="1467" loading="lazy">
-      <img src="images/gallery/g41.webp" alt="След" width="1100" height="1467" loading="lazy">
-      <span class="ba-preview__label">Преди / След ↗</span>
-    </a>
-    <div class="extensions-proof__text">
-      <p class="lead">Консултация преди всяка процедура — определяме метод, дължина и количество коса според твоята.</p>
-      <a class="btn btn--gold" href="#contact">Запази консултация ↗</a>
-    </div>
-  </div>
-</section>
-
-<section id="pricing" class="section reveal">
-  <div class="section-head">
-    <div class="kicker">Цени</div>
-    <h2>Цени</h2>
-    <p class="section-lead">Всички цени са в евро. Крайната цена за екстеншъни се определя на консултация според метода и количеството коса.</p>
-  </div>
-
-  <div class="price-tabs">
-    <div class="tabbar">
-      <input type="radio" name="cat" id="cat-hair" class="vh-radio" checked><label for="cat-hair" class="tab">Коса</label>
-      <input type="radio" name="cat" id="cat-mani" class="vh-radio"><label for="cat-mani" class="tab">Маникюр</label>
-      <input type="radio" name="cat" id="cat-pedi" class="vh-radio"><label for="cat-pedi" class="tab">Педикюр</label>
-      <input type="radio" name="cat" id="cat-ext" class="vh-radio"><label for="cat-ext" class="tab">Екстеншъни</label>
-    </div>
-
-    <div class="panels">
-
-      <div class="panel panel--hair">
-        <h3 class="panel-title">Коса</h3>
-
-        <div class="length-select">
-          <span class="length-select__label">Дължина на косата (за подстригване на жени, сешоар, боядисване и кичури):</span>
-          <span class="length-select__group">
-            <input type="radio" name="len" id="len-short" class="vh-radio" checked><label for="len-short" class="tab tab--sm">Къса</label>
-            <input type="radio" name="len" id="len-medium" class="vh-radio"><label for="len-medium" class="tab tab--sm">Средна</label>
-            <input type="radio" name="len" id="len-long" class="vh-radio"><label for="len-long" class="tab tab--sm">Дълга</label>
-          </span>
-        </div>
-
-        <h4 class="group-title">Подстригване</h4>
-        <ul class="price-list">
-          <li class="price-row"><span class="service-name">Деца / мъже</span><span class="price">€10</span></li>
-          <li class="price-row"><span class="service-name">Жени</span>
-            <span class="tier-prices">
-              <span class="tier" data-tier="short">Къса <b>€10</b></span>
-              <span class="tier" data-tier="medium">Средна <b>€15</b></span>
-              <span class="tier" data-tier="long">Дълга <b>€20</b></span>
-            </span>
-          </li>
-          <li class="price-row"><span class="service-name">Бретон</span><span class="price">€5</span></li>
-        </ul>
-
-        <h4 class="group-title">Сешоар / стайлинг</h4>
-        <ul class="price-list">
-          <li class="price-row"><span class="service-name">Изсушаване и оформяне</span>
-            <span class="tier-prices">
-              <span class="tier" data-tier="short">Къса <b>€10</b></span>
-              <span class="tier" data-tier="medium">Средна <b>€15</b></span>
-              <span class="tier" data-tier="long">Дълга <b>€20</b></span>
-            </span>
-          </li>
-        </ul>
-
-        <h4 class="group-title">Прически</h4>
-        <ul class="price-list">
-          <li class="price-row"><span class="service-name">Ежедневна</span><span class="price">€55</span></li>
-          <li class="price-row"><span class="service-name">Вечерна</span><span class="price">€70</span></li>
-          <li class="price-row"><span class="service-name">Официална</span><span class="price">€100</span></li>
-        </ul>
-
-        <h4 class="group-title">Боядисване</h4>
-        <ul class="price-list">
-          <li class="price-row"><span class="service-name">Корени</span><span class="price">€15</span></li>
-          <li class="price-row"><span class="service-name">Цялостно боядисване / обезцветяване</span>
-            <span class="tier-prices">
-              <span class="tier" data-tier="short">Къса <b>€20</b></span>
-              <span class="tier" data-tier="medium">Средна <b>€25</b></span>
-              <span class="tier" data-tier="long">Дълга <b>€30</b></span>
-            </span>
-          </li>
-          <li class="price-row"><span class="service-name">Кичури / балеаж / омбре</span>
-            <span class="tier-prices">
-              <span class="tier" data-tier="short">Къса <b>€40</b></span>
-              <span class="tier" data-tier="medium">Средна <b>€50</b></span>
-              <span class="tier" data-tier="long">Дълга <b>€60</b></span>
-            </span>
-          </li>
-        </ul>
-
-        <h4 class="group-title">Плитки</h4>
-        <ul class="price-list">
-          <li class="price-row"><span class="service-name">Бокс плитки</span><span class="price">€25</span></li>
-          <li class="price-row"><span class="service-name">Плитки на половин глава</span><span class="price">€40</span></li>
-          <li class="price-row"><span class="service-name">Плитки на цяла глава</span><span class="price">€70</span></li>
-          <li class="price-row"><span class="service-name">Афро плитки с канекалон</span><span class="price">€230</span></li>
-        </ul>
-      </div>
-
-      <div class="panel panel--mani">
-        <h3 class="panel-title">Маникюр</h3>
-        <ul class="price-list">
-          <li class="price-row"><span class="service-name">Свалящ гел лак</span><span class="price">€5</span></li>
-          <li class="price-row"><span class="service-name">Оформяне и грижа за кожички</span><span class="price">€10</span></li>
-          <li class="price-row"><span class="service-name">Гел лак</span><span class="price">€10</span></li>
-          <li class="price-row"><span class="service-name">Гел с гел лак</span><span class="price">€15</span></li>
-          <li class="price-row"><span class="service-name">Изграждане с типс</span><span class="price">€30</span></li>
-          <li class="price-row"><span class="service-name">Изграждане с форма (скулптуриране)</span><span class="price">€40</span></li>
-          <li class="price-row"><span class="service-name">Поддръжка / допълване</span><span class="price">€25</span></li>
-          <li class="price-row price-row--addon"><span class="service-name">+ Nail art <small>добавка към маникюр или педикюр</small></span><span class="price">€5</span></li>
-        </ul>
-      </div>
-
-      <div class="panel panel--pedi">
-        <h3 class="panel-title">Педикюр</h3>
-        <ul class="price-list">
-          <li class="price-row"><span class="service-name">Свалящ гел лак</span><span class="price">€5</span></li>
-          <li class="price-row"><span class="service-name">Оформяне и грижа за кожички</span><span class="price">€10</span></li>
-          <li class="price-row"><span class="service-name">Гел лак</span><span class="price">€10</span></li>
-          <li class="price-row"><span class="service-name">Пълен педикюр <small>оформяне, почистване, премахване на загрубяла кожа и гел лак</small></span><span class="price">€60</span></li>
-          <li class="price-row price-row--addon"><span class="service-name">+ Nail art <small>добавка към маникюр или педикюр</small></span><span class="price">€5</span></li>
-        </ul>
-      </div>
-
-      <div class="panel panel--ext">
-        <h3 class="panel-title">Екстеншъни</h3>
-        <ul class="price-list">
-          <li class="price-row"><span class="service-name">Консултация и план</span><span class="price">Безплатно</span></li>
-          <li class="price-row"><span class="service-name">V-Light UV · поставяне</span><span class="price">от €150</span></li>
-          <li class="price-row"><span class="service-name">Поддръжка</span><span class="price">от €60</span></li>
-          <li class="price-row"><span class="service-name">Сваляне</span><span class="price">от €30</span></li>
-        </ul>
-        <p class="note">Точната цена зависи от метода, дължината и количеството коса — определя се на консултацията.</p>
-      </div>
-
     </div>
   </div>
 </section>
 
 <section class="section reveal">
   <div class="section-head">
-    <div class="kicker">Портфолио</div>
-    <h2>От галерията</h2>
+    <div class="kicker">Разгледай</div>
+    <h2>Какво търсиш?</h2>
   </div>
-  <div class="teaser-grid">
-    <a class="teaser-tile" href="gallery.html"><img src="images/gallery/g66.webp" alt="Контрастни кичури на тъмна коса" width="1100" height="1467" loading="lazy"></a>
-    <a class="teaser-tile" href="gallery.html"><img src="images/gallery/g48.webp" alt="Плитка с кожена яка" width="1100" height="1467" loading="lazy"></a>
-    <a class="teaser-tile" href="gallery.html"><img src="images/gallery/g61.webp" alt="Наситен червен цвят" width="1100" height="1467" loading="lazy"></a>
-    <a class="teaser-tile" href="gallery.html"><img src="images/gallery/g64.webp" alt="Маникюр с nail art" width="1100" height="1467" loading="lazy"></a>
-  </div>
-  <div style="margin-top:28px"><a class="btn" href="gallery.html">Виж цялата галерия ↗</a></div>
-</section>
-
-<section id="studio" class="section section--alt reveal">
-  <div class="section-head">
-    <div class="kicker">Продукти и технология</div>
-  </div>
-  <div class="studio-grid">
-    <figure class="studio-card">
-      <img src="images/produkti-shelf.webp" alt="Професионални продукти CHI в студиото" width="1000" height="563" loading="lazy">
-      <figcaption>Работим с CHI, K18 и други професионални марки.</figcaption>
-    </figure>
-    <figure class="studio-card">
-      <img src="images/vlight-tech.webp" alt="V-Light UV технология за екстеншъни" width="1200" height="1460" loading="lazy">
-      <figcaption>V-Light UV технология за екстеншъни от естествена коса.</figcaption>
-    </figure>
-  </div>
-</section>
-
-<section id="faq" class="section section--alt reveal">
-  <div class="section-head">
-    <div class="kicker">Въпроси</div>
-    <h2>Често задавани въпроси</h2>
-  </div>
-  <div class="faq">
-    <details>
-      <summary>Как мога да запазя час?</summary>
-      <p>Можеш да запазиш час чрез формата за записване, на телефон +359 88 286 8822 или с лично съобщение във Viber или Facebook. След като се свържеш с нас, ще уточним удобен за теб ден и час и ще потвърдим записването.</p>
-    </details>
-    <details>
-      <summary>Какво включва консултацията за екстеншъни?</summary>
-      <p>По време на консултацията ще разгледаме състоянието и особеностите на естествената ти коса, за да изберем най-подходящия метод, дължина и количество екстеншъни. Ще обсъдим цвета, структурата и желания от теб резултат. Можеш да разгледаш наличните коси в салона и да избереш своя екстеншън на място. След като уточним всички детайли, ще ти предложим най-подходящото решение и ще обсъдим следващите стъпки.</p>
-    </details>
-    <details>
-      <summary>Какви методи за удължаване на косата предлагате?</summary>
-      <p>Предлагаме няколко метода за поставяне на екстеншъни. Подходящият метод се избира според състоянието на естествената коса, желания резултат и личните ти предпочитания.</p>
-      <p><strong>Кератинови кичури</strong> — При този метод отделни кичури се прикрепят към естествената коса чрез кератинова връзка. Той е подходящ за създаване на естествено изглеждаща дължина и плътност, като позволява прецизно разпределяне на кичурите.</p>
-      <p><strong>Капси</strong> — Екстеншъните се прикрепят към естествената коса чрез малки капси, без използване на лепило. Методът позволява лесно сваляне и подмяна на екстеншъните при необходимата поддръжка.</p>
-      <p><strong>V-Light UV</strong> — При този метод връзката между екстеншъна и естествената коса се фиксира с UV светлина. Така се създава изключително малка и дискретна връзка, което прави метода подходящ и за по-фина коса.</p>
-      <p>По време на консултацията ще ти помогнем да избереш метода, който най-добре отговаря на твоята коса и желания резултат.</p>
-    </details>
-    <details>
-      <summary>Как да се грижа за екстеншъните си?</summary>
-      <p>Правилната грижа е важна както за красивия вид на екстеншъните, така и за поддържането на естествената коса в добро състояние.</p>
-      <p>Не пропускай препоръчителната поддръжка според конкретния метод. Тя е важна за правилното преместване, подмяна или сваляне на екстеншъните, както и за предотвратяване на излишно опъване и заплитане на естествената коса.</p>
-      <p>Разресвай косата внимателно, като започваш от краищата и постепенно се придвижваш към корените. Използвай четка, предназначена за коса с екстеншъни.</p>
-      <p>При миене не търкай агресивно местата на прикрепване. След това подсуши косата добре и преди сън се увери, че е напълно суха. За да ограничиш заплитането, можеш да я прибираш в свободна плитка или ниска опашка.</p>
-      <p>Използвай продукти, подходящи за коса с екстеншъни. Избягвай да нанасяш масла, балсами и други тежки продукти директно върху местата на прикрепване.</p>
-      <p>Когато използваш преса, маша или сешоар, избягвай прекомерната топлина в близост до връзките.</p>
-    </details>
-    <details>
-      <summary>Къде се намира салонът?</summary>
-      <p>гр. Бургас, ул. „Любен Каравелов“ № 15 — картата в контактите по-долу показва точното местоположение.</p>
-    </details>
-  </div>
-</section>
-
-<section id="contact" class="section reveal">
-  <div class="contact-grid">
-    <div>
-      <div class="kicker">Записване</div>
-      <h2>Избери своя час</h2>
-      <p class="lead">Пиши ни с предпочитана услуга и дата. Ще потвърдим възможностите директно.</p>
-      <dl class="facts">
-        <div><dt>Адрес</dt><dd>Бургас, ул. „Любен Каравелов“ 15</dd></div>
-        <div><dt>Работно време</dt><dd>Пон–Съб · 10:00–20:00</dd></div>
-        <div><dt>Телефон</dt><dd><a href="tel:+359882868822">+359 88 286 8822</a></dd></div>
-        <div><dt>Viber</dt><dd><a href="viber://chat?number=%2B359882868822">Пишете ни</a></dd></div>
-        <div><dt>Facebook</dt><dd><a href="https://www.facebook.com/profile.php?id=61592300043325" target="_blank" rel="noopener">Irena Beauty Studio</a></dd></div>
-        <div><dt>Google</dt><dd><a href="https://www.google.com/maps/place/Irena+Beauty+Studio/@42.4995129,27.4697753,17z/data=!3m1!4b1!4m6!3m5!1s0x40a69512928afc09:0x32889e9de14c91b3!8m2!3d42.4995129!4d27.4697753!16s%2Fg%2F11ntpxrgth" target="_blank" rel="noopener">Остави отзив ↗</a></dd></div>
-      </dl>
-      <div class="map-embed">
-        <iframe src="https://www.google.com/maps?q=Irena%20Beauty%20Studio%2C%20%D1%83%D0%BB.%20%D0%9B%D1%8E%D0%B1%D0%B5%D0%BD%20%D0%9A%D0%B0%D1%80%D0%B0%D0%B2%D0%B5%D0%BB%D0%BE%D0%B2%2015%2C%20%D0%91%D1%83%D1%80%D0%B3%D0%B0%D1%81&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Карта с местоположението на Irena Beauty Studio"></iframe>
-      </div>
-    </div>
-    <form class="form" id="bookForm" action="https://formsubmit.co/irenabeauty.studio.bs@gmail.com" method="POST">
-      <input type="hidden" name="_subject" value="Нова заявка за час — Irena Beauty Studio">
-      <input type="hidden" name="_template" value="table">
-      <input type="hidden" name="_captcha" value="false">
-      <label>Име<input name="name" required placeholder="Твоето име"></label>
-      <label>Телефон<input name="phone" required placeholder="+359 ..."></label>
-      <label>Услуга<select name="service">
-        <option>Подстригване</option>
-        <option>Боядисване</option>
-        <option>Прическа</option>
-        <option>Плитки</option>
-        <option>Маникюр</option>
-        <option>Педикюр</option>
-        <option>Екстеншъни</option>
-        <option>Консултация</option>
-      </select></label>
-      <label>Дата<input name="date" type="date"></label>
-      <label>Съобщение<textarea name="message" placeholder="Кратко описание, добавки (напр. nail art), предпочитана дължина"></textarea></label>
-      <div class="form__msg" id="formMsg">Запитването е изпратено. Ще се свържем с теб.</div>
-      <button class="btn btn--gold" type="submit">Изпрати запитване ↗</button>
-    </form>
+  <div class="funnel-grid">
+    <a class="funnel-card" href="extensions.html">
+      <img src="images/gallery/g41.webp" alt="Екстеншъни от естествена коса" width="1100" height="1467" loading="lazy">
+      <span class="funnel-card__label"><span class="kicker">01</span><h3>Екстеншъни</h3></span>
+    </a>
+    <a class="funnel-card" href="pricing.html">
+      <img src="images/produkti-shelf.webp" alt="Ценоразпис" width="1000" height="563" loading="lazy">
+      <span class="funnel-card__label"><span class="kicker">02</span><h3>Цени</h3></span>
+    </a>
+    <a class="funnel-card" href="gallery.html">
+      <img src="images/gallery/g66.webp" alt="Галерия с реални резултати" width="1100" height="1467" loading="lazy">
+      <span class="funnel-card__label"><span class="kicker">03</span><h3>Галерия</h3></span>
+    </a>
+    <a class="funnel-card" href="contact.html">
+      <img src="images/hero-main.webp" alt="Контакти и запазване на час" width="1600" height="893" loading="lazy">
+      <span class="funnel-card__label"><span class="kicker">04</span><h3>Контакти</h3></span>
+    </a>
   </div>
 </section>
 
@@ -489,28 +139,6 @@
 </footer>
 
 <script>
-document.getElementById('bookForm').addEventListener('submit', async e => {
-  e.preventDefault();
-  const f = e.currentTarget;
-  if (!f.checkValidity()) { f.reportValidity(); return }
-  const b = f.querySelector('button'), m = document.getElementById('formMsg');
-  b.disabled = true; b.textContent = 'Изпращане...';
-  const data = Object.fromEntries(new FormData(f));
-  try {
-    const r = await fetch('https://formsubmit.co/ajax/irenabeauty.studio.bs@gmail.com', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-      body: JSON.stringify(data)
-    });
-    const j = await r.json();
-    if (!j.success) throw 0;
-    m.classList.add('show'); f.reset(); b.textContent = 'Изпратено ✓';
-  } catch (x) {
-    b.disabled = false; b.textContent = 'Опитай отново ↗';
-    m.textContent = 'Проблем с изпращането. Обади се на +359 88 286 8822.'; m.classList.add('show');
-  }
-});
-
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 if (!reduceMotion && 'IntersectionObserver' in window) {
   const io = new IntersectionObserver(entries => {
@@ -519,35 +147,6 @@ if (!reduceMotion && 'IntersectionObserver' in window) {
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 } else {
   document.querySelectorAll('.reveal').forEach(el => el.classList.add('is-visible'));
-}
-
-const navLinks = document.querySelectorAll('.top__nav a[href^="#"]');
-const navSections = [...navLinks].map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
-if (navSections.length && 'IntersectionObserver' in window) {
-  const spy = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (!e.isIntersecting) return;
-      navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id));
-    });
-  }, {rootMargin: '-40% 0px -55% 0px'});
-  navSections.forEach(s => spy.observe(s));
-}
-
-const lazyVideos = document.querySelectorAll('video[data-src]');
-if ('IntersectionObserver' in window) {
-  const vio = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (!e.isIntersecting) return;
-      const v = e.target;
-      v.src = v.dataset.src;
-      v.removeAttribute('data-src');
-      if (!reduceMotion) v.play().catch(() => {});
-      vio.unobserve(v);
-    });
-  }, {threshold: .2});
-  lazyVideos.forEach(v => vio.observe(v));
-} else {
-  lazyVideos.forEach(v => { v.src = v.dataset.src; v.removeAttribute('data-src'); });
 }
 </script>
 </body>

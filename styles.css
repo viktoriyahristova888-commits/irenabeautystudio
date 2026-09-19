@@ -47,6 +47,14 @@ h1,h2,h3{font-family:var(--serif);font-weight:500;text-wrap:balance;margin:0}
 .section-head h2{font-size:clamp(1.7rem,3.2vw,2.2rem);margin-top:8px}
 .section-lead{color:var(--muted);margin-top:12px;font-size:15px;max-width:60ch}
 
+/* inner-page head (Екстеншъни / Цени / Контакти) */
+.page-head{max-width:640px;margin:0 auto 8px;padding:48px 40px 0}
+.page-head h1{font-size:clamp(1.9rem,3.6vw,2.6rem);margin-top:8px}
+.page-head .lead{margin-top:10px}
+@media(max-width:760px){
+  .page-head{padding:36px 20px 0}
+}
+
 /* shared tab/filter control (pricing + gallery filters) */
 .tabbar{display:none}
 .vh-radio{position:absolute;width:1px;height:1px;overflow:hidden;opacity:0;pointer-events:none}
@@ -62,6 +70,10 @@ h1,h2,h3{font-family:var(--serif);font-weight:500;text-wrap:balance;margin:0}
 /* scroll reveal */
 .reveal{opacity:0;transform:translateY(22px) scale(.985);transition:opacity .7s ease,transform .7s cubic-bezier(.16,.8,.2,1)}
 .reveal.is-visible{opacity:1;transform:none}
+
+.cta-band{text-align:center;padding:44px 40px;background:var(--dark);border-top:1px solid var(--line)}
+.cta-band h2{font-size:clamp(1.5rem,3vw,2.1rem)}
+.cta-band .lead{margin:10px auto 22px;max-width:480px}
 
 footer{padding:36px 40px;text-align:center;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}
 footer a:hover{color:var(--gold)}
