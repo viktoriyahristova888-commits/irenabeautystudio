@@ -47,12 +47,17 @@ h1,h2,h3{font-family:var(--serif);font-weight:500;text-wrap:balance;margin:0}
 .section-head h2{font-size:clamp(1.7rem,3.2vw,2.2rem);margin-top:8px}
 .section-lead{color:var(--muted);margin-top:12px;font-size:15px;max-width:60ch}
 
-/* inner-page head (Екстеншъни / Цени / Контакти) */
-.page-head{max-width:640px;margin:0 auto 8px;padding:48px 40px 0}
-.page-head h1{font-size:clamp(1.9rem,3.6vw,2.6rem);margin-top:8px}
-.page-head .lead{margin-top:10px}
+/* hero — used at the top of every page except the gallery masthead */
+.hero{position:relative;padding:96px 40px 56px;scroll-margin-top:0}
+.hero__bg{position:absolute;inset:0;z-index:-1}
+.hero__bg img{width:100%;height:100%;object-fit:cover;filter:brightness(.55)}
+.hero__bg:after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(23,21,19,.92),rgba(23,21,19,.45) 60%,rgba(23,21,19,.72))}
+.hero__content{position:relative;max-width:600px}
+.hero h1{font-size:clamp(2.1rem,4.2vw,3.2rem);line-height:1.04;letter-spacing:-.02em;margin-top:12px}
+.hero h1 em{color:var(--gold);font-style:italic}
+.hero__actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
 @media(max-width:760px){
-  .page-head{padding:36px 20px 0}
+  .hero{padding:84px 20px 40px}
 }
 
 /* shared tab/filter control (pricing + gallery filters) */

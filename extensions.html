@@ -27,12 +27,14 @@
 <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <style>
-.swatch-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:14px}
+.swatch-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
 .swatch{width:100%;aspect-ratio:9/16;object-fit:cover;border:1px solid var(--line);background:var(--dark);display:block}
+.swatch-strip>*:nth-child(3n+2){margin-top:28px}
+.swatch-strip>*:nth-child(3n+3){margin-top:14px}
 .process-strip{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:28px}
 .process-clip{position:relative;border:1px solid var(--line);background:var(--dark)}
 .process-clip video{width:100%;aspect-ratio:4/5;object-fit:cover;display:block}
-.before-after{max-width:680px;margin:44px auto 0}
+.before-after{max-width:680px;margin:0 auto}
 .before-after__label{display:block;margin-bottom:12px;text-align:center}
 .before-after__grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;border:1px solid var(--line)}
 .ba-card{position:relative;margin:0;aspect-ratio:3/4;overflow:hidden}
@@ -59,6 +61,7 @@
 }
 @media(max-width:600px){
   .swatch-strip{grid-template-columns:repeat(2,1fr)}
+  .swatch-strip>*{margin-top:0!important}
 }
 </style>
 </head>
@@ -79,22 +82,25 @@
   </div>
 </header>
 
-<div class="page-head reveal">
-  <div class="kicker">Екстеншъни от естествена коса</div>
-  <h1>Екстеншъни</h1>
-  <p class="lead">Естествена коса, прецизен метод, видим резултат.</p>
-</div>
+<section class="hero">
+  <div class="hero__bg"><img src="images/hero-extensions.webp" alt="Стилизиращ кът в Irena Beauty Studio" width="1800" height="1005" fetchpriority="high"></div>
+  <div class="hero__content">
+    <div class="kicker">Екстеншъни от естествена коса</div>
+    <h1>Екстеншъни</h1>
+    <p class="lead">Естествена коса, прецизен метод, видим резултат.</p>
+    <div class="hero__actions">
+      <a class="btn btn--gold" href="contact.html">Запази консултация ↗</a>
+      <a class="btn" href="pricing.html#cat-ext">Виж цени</a>
+    </div>
+  </div>
+</section>
 
 <section class="section reveal">
-  <div class="swatch-strip">
-    <video class="swatch" data-src="videos/swatch/swatch-1.mp4" poster="videos/swatch/swatch-1-poster.jpg" muted loop playsinline preload="none"></video>
-    <video class="swatch" data-src="videos/swatch/swatch-4.mp4" poster="videos/swatch/swatch-4-poster.jpg" muted loop playsinline preload="none"></video>
-    <video class="swatch" data-src="videos/swatch/swatch-5.mp4" poster="videos/swatch/swatch-5-poster.jpg" muted loop playsinline preload="none"></video>
-    <video class="swatch" data-src="videos/swatch/swatch-6.mp4" poster="videos/swatch/swatch-6-poster.jpg" muted loop playsinline preload="none"></video>
-    <video class="swatch" data-src="videos/swatch/swatch-7.mp4" poster="videos/swatch/swatch-7-poster.jpg" muted loop playsinline preload="none"></video>
-    <video class="swatch" data-src="videos/swatch/swatch-8.mp4" poster="videos/swatch/swatch-8-poster.jpg" muted loop playsinline preload="none"></video>
+  <div class="section-head">
+    <div class="kicker">Процес</div>
+    <h2>Как протича процедурата</h2>
+    <p class="section-lead">Всяка процедура започва с преглед на естествената коса и избор на метод, преди да преминем към поставянето.</p>
   </div>
-
   <div class="process-strip">
     <div class="process-clip">
       <video data-src="videos/process/process-1.mp4" poster="videos/process/process-1-poster.jpg" muted loop playsinline preload="none"></video>
@@ -103,7 +109,25 @@
       <video data-src="videos/process/process-2.mp4" poster="videos/process/process-2-poster.jpg" muted loop playsinline preload="none"></video>
     </div>
   </div>
+</section>
 
+<section class="section section--alt reveal">
+  <div class="section-head">
+    <div class="kicker">Възможности</div>
+    <h2>Избери цвят и текстура</h2>
+    <p class="section-lead">Разгледай наличните цветове и дължини — образците са на разположение и в салона.</p>
+  </div>
+  <div class="swatch-strip">
+    <video class="swatch" data-src="videos/swatch/swatch-1.mp4" poster="videos/swatch/swatch-1-poster.jpg" muted loop playsinline preload="none"></video>
+    <video class="swatch" data-src="videos/swatch/swatch-4.mp4" poster="videos/swatch/swatch-4-poster.jpg" muted loop playsinline preload="none"></video>
+    <video class="swatch" data-src="videos/swatch/swatch-5.mp4" poster="videos/swatch/swatch-5-poster.jpg" muted loop playsinline preload="none"></video>
+    <video class="swatch" data-src="videos/swatch/swatch-6.mp4" poster="videos/swatch/swatch-6-poster.jpg" muted loop playsinline preload="none"></video>
+    <video class="swatch" data-src="videos/swatch/swatch-7.mp4" poster="videos/swatch/swatch-7-poster.jpg" muted loop playsinline preload="none"></video>
+    <video class="swatch" data-src="videos/swatch/swatch-8.mp4" poster="videos/swatch/swatch-8-poster.jpg" muted loop playsinline preload="none"></video>
+  </div>
+</section>
+
+<section class="section reveal">
   <div class="before-after">
     <div class="kicker before-after__label">Преди / След</div>
     <div class="before-after__grid">
