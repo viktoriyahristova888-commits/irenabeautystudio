@@ -28,15 +28,21 @@
 <link rel="stylesheet" href="styles.css">
 <style>
 .section{padding:48px 40px;scroll-margin-top:62px;max-width:1320px;margin:0 auto}
-.page-head-wrap{position:relative;padding:72px 40px 1px;overflow:hidden}
-.page-head-bg{position:absolute;inset:0;z-index:-1}
-.page-head-bg img{width:100%;height:100%;object-fit:cover;filter:brightness(.42)}
-.page-head-bg:after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(23,21,19,.5),rgba(23,21,19,.94) 78%)}
-.page-head{max-width:640px;margin:0 auto 28px;position:relative}
-.page-head h1{font-size:clamp(1.9rem,3.6vw,2.6rem)}
-.page-head .lead{margin-top:10px}
 
-.before-after{max-width:680px;margin:0 auto 44px}
+/* editorial masthead: oversized title + offset portrait strip breaking the baseline */
+.gmast{max-width:1320px;margin:0 auto;padding:64px 40px 0;overflow:visible}
+.gmast__head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;padding-bottom:18px}
+.gmast__title{font-size:clamp(3.2rem,11vw,8rem);line-height:.86;letter-spacing:-.02em;white-space:nowrap}
+.gmast__title em{color:var(--gold);font-style:italic}
+.gmast__head .lead{margin:0 0 10px;max-width:320px}
+.gmast__strip{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:-46px;position:relative;z-index:2}
+.gmast__tile{position:relative;aspect-ratio:3/4;overflow:hidden;border:1px solid var(--line);background:var(--dark)}
+.gmast__tile img{width:100%;height:100%;object-fit:cover}
+.gmast__tile figcaption{position:absolute;left:0;right:0;bottom:0;padding:8px 10px;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--cream);background:linear-gradient(transparent,rgba(23,21,19,.85))}
+.gmast__strip>*:nth-child(2){margin-top:34px}
+.gmast__strip>*:nth-child(4){margin-top:58px}
+
+.before-after{max-width:680px;margin:56px auto 44px}
 .before-after__label{display:block;margin-bottom:12px;text-align:center}
 .before-after__grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;border:1px solid var(--line)}
 .ba-card{position:relative;margin:0;aspect-ratio:3/4;overflow:hidden}
@@ -49,6 +55,8 @@
 .tile:hover img{transform:scale(1.045)}
 .tile__tag{position:absolute;left:12px;bottom:12px;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--cream);background:rgba(23,21,19,.72);padding:5px 10px;border-radius:2px;opacity:0;transform:translateY(6px);transition:.25s}
 .tile:hover .tile__tag,.tile:focus-visible .tile__tag{opacity:1;transform:none}
+.tile__expand{position:absolute;right:10px;top:10px;width:30px;height:30px;border-radius:50%;background:rgba(23,21,19,.72);border:1px solid var(--line);color:var(--cream);display:flex;align-items:center;justify-content:center;font-size:14px;opacity:0;transform:translateY(-4px);transition:.25s}
+.tile:hover .tile__expand,.tile:focus-visible .tile__expand{opacity:1;transform:none}
 
 @supports selector(:has(a)){
   .gallery-tabs:has(#gcat-all:checked) .panel--all{display:block}
@@ -63,8 +71,12 @@
   .gallery-tabs:has(#gcat-style:checked) label[for="gcat-style"],
   .gallery-tabs:has(#gcat-cut:checked) label[for="gcat-cut"],
   .gallery-tabs:has(#gcat-nails:checked) label[for="gcat-nails"]{background:var(--gold);border-color:var(--gold);color:#1b1815}
-  .panel--all .tile:nth-child(7n+4){grid-column:span 2}
 }
+
+/* asymmetric collage rhythm — "Всички" only, desktop only (neutralised below 760px) */
+.panel--all .grid{grid-template-columns:repeat(4,1fr)}
+.panel--all .tile:nth-child(6n+3){grid-column:span 2}
+.panel--all .tile:nth-child(6n+5){margin-top:28px}
 
 .cta-band{text-align:center;padding:44px 40px;background:var(--dark);border-top:1px solid var(--line)}
 .cta-band h2{font-size:clamp(1.5rem,3vw,2.1rem)}
@@ -79,16 +91,24 @@ dialog.lightbox::backdrop{background:rgba(10,9,8,.92)}
 .lightbox__prev{left:24px;top:50%;transform:translateY(-50%)}
 .lightbox__next{right:24px;top:50%;transform:translateY(-50%)}
 .lightbox__close:hover,.lightbox__prev:hover,.lightbox__next:hover{border-color:var(--gold);color:var(--gold)}
+.lightbox__count{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);font:italic 500 14px var(--serif);color:var(--muted);letter-spacing:.04em}
 
 @media(max-width:900px){
-  .grid{grid-template-columns:repeat(2,1fr)}
-  .panel--all .tile:nth-child(7n+4){grid-column:span 2}
+  .grid,.panel--all .grid{grid-template-columns:repeat(2,1fr)}
+  .panel--all .tile:nth-child(6n+3){grid-column:span 2}
+  .gmast__strip{grid-template-columns:repeat(2,1fr)}
 }
 @media(max-width:760px){
   .section{padding:36px 20px}
-  .grid{grid-template-columns:repeat(2,1fr);gap:8px}
-  .panel--all .tile:nth-child(7n+4){grid-column:span 1}
+  .grid,.panel--all .grid{grid-template-columns:repeat(2,1fr);gap:8px}
+  .panel--all .tile:nth-child(6n+3),.panel--all .tile:nth-child(6n+5){grid-column:auto;margin-top:0}
   .lightbox__prev,.lightbox__next{width:38px;height:38px;font-size:15px}
+  .gmast{padding:40px 20px 0}
+  .gmast__title{font-size:clamp(2.6rem,15vw,3.4rem)}
+  .gmast__head{padding-bottom:14px}
+  .gmast__strip{grid-template-columns:repeat(2,1fr);margin-top:0;gap:8px}
+  .gmast__strip>*{margin-top:0!important}
+  .gmast__strip>*:nth-child(3),.gmast__strip>*:nth-child(4){display:none}
 }
 </style>
 </head>
@@ -108,12 +128,19 @@ dialog.lightbox::backdrop{background:rgba(10,9,8,.92)}
   </div>
 </header>
 
-<section class="page-head-wrap">
-  <div class="page-head-bg"><img src="images/gallery-header.webp" alt="Интериор на Irena Beauty Studio" width="1600" height="500" fetchpriority="high"></div>
-  <div class="page-head reveal">
-    <div class="kicker">Портфолио</div>
-    <h1>Галерия</h1>
-    <p class="lead">Реални резултати от студиото — филтрирай по категория.</p>
+<section class="gmast">
+  <div class="gmast__head">
+    <div>
+      <div class="kicker">Портфолио</div>
+      <h1 class="gmast__title">Гал<em>е</em>рия</h1>
+    </div>
+    <p class="lead">Реални резултати от студиото — филтрирай по категория по-долу.</p>
+  </div>
+  <div class="gmast__strip">
+    <div class="gmast__tile"><img src="images/gallery/g49.webp" alt="Висока прическа с блясък" width="1100" height="1467" loading="eager"></div>
+    <div class="gmast__tile"><img src="images/gallery/g46.webp" alt="Каре с керемидено оцветяване" width="1100" height="1467" loading="eager"><figcaption>Подстригване</figcaption></div>
+    <div class="gmast__tile"><img src="images/gallery/g59.webp" alt="Плетена корона с къдрици" width="1100" height="1467" loading="lazy"></div>
+    <div class="gmast__tile"><img src="images/gallery/g53.webp" alt="Наситен оранжев цвят" width="1100" height="1467" loading="lazy"><figcaption>Боядисване</figcaption></div>
   </div>
 </section>
 
@@ -173,6 +200,7 @@ dialog.lightbox::backdrop{background:rgba(10,9,8,.92)}
 <button class="lightbox__close" id="lbClose" aria-label="Затвори" hidden>&times;</button>
 <button class="lightbox__prev" id="lbPrev" aria-label="Предишна снимка" hidden>&#8249;</button>
 <button class="lightbox__next" id="lbNext" aria-label="Следваща снимка" hidden>&#8250;</button>
+<div class="lightbox__count" id="lbCount" hidden></div>
 
 <script>
 // Забележка за бъдещо разширение: нова категория (напр. "Видео") се добавя с
@@ -210,7 +238,7 @@ photos.forEach((p, i) => {
     btn.className = 'tile';
     btn.type = 'button';
     btn.dataset.index = i;
-    btn.innerHTML = `<img src="images/gallery/${p.f}.webp" alt="${p.alt}" loading="lazy" width="1100" height="1467"><span class="tile__tag">${p.alt}</span>`;
+    btn.innerHTML = `<img src="images/gallery/${p.f}.webp" alt="${p.alt}" loading="lazy" width="1100" height="1467"><span class="tile__tag">${p.alt}</span><span class="tile__expand" aria-hidden="true">&#8599;</span>`;
     btn.addEventListener('click', () => openLightbox(i));
     return btn;
   };
@@ -224,26 +252,28 @@ const lbImg = document.getElementById('lightboxImg');
 const lbClose = document.getElementById('lbClose');
 const lbPrev = document.getElementById('lbPrev');
 const lbNext = document.getElementById('lbNext');
+const lbCount = document.getElementById('lbCount');
 let current = 0;
 
 function openLightbox(i) {
   current = i;
   showCurrent();
   lb.showModal();
-  lbClose.hidden = false; lbPrev.hidden = false; lbNext.hidden = false;
+  lbClose.hidden = false; lbPrev.hidden = false; lbNext.hidden = false; lbCount.hidden = false;
 }
 function showCurrent() {
   const p = photos[current];
   lbImg.src = `images/gallery/${p.f}.webp`;
   lbImg.alt = p.alt;
+  lbCount.textContent = `${current + 1} / ${photos.length}`;
 }
 function closeLightbox() {
   lb.close();
-  lbClose.hidden = true; lbPrev.hidden = true; lbNext.hidden = true;
+  lbClose.hidden = true; lbPrev.hidden = true; lbNext.hidden = true; lbCount.hidden = true;
 }
 lbClose.addEventListener('click', closeLightbox);
 lb.addEventListener('click', e => { if (e.target === lb) closeLightbox(); });
-lb.addEventListener('close', () => { lbClose.hidden = true; lbPrev.hidden = true; lbNext.hidden = true; });
+lb.addEventListener('close', () => { lbClose.hidden = true; lbPrev.hidden = true; lbNext.hidden = true; lbCount.hidden = true; });
 lbPrev.addEventListener('click', () => { current = (current - 1 + photos.length) % photos.length; showCurrent(); });
 lbNext.addEventListener('click', () => { current = (current + 1) % photos.length; showCurrent(); });
 window.addEventListener('keydown', e => {
