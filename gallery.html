@@ -29,18 +29,22 @@
 <style>
 .section{padding:48px 40px;scroll-margin-top:62px;max-width:1320px;margin:0 auto}
 
-/* editorial masthead: oversized title + offset portrait strip breaking the baseline */
-.gmast{max-width:1320px;margin:0 auto;padding:64px 40px 0;overflow:visible}
-.gmast__head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;padding-bottom:18px}
-.gmast__title{font-size:clamp(3.2rem,11vw,8rem);line-height:.86;letter-spacing:-.02em;white-space:nowrap}
+/* editorial masthead: transparent title overlaid on the photo strip (desktop);
+   stacked plainly above it on mobile so nothing gets clipped either way */
+.gmast{max-width:1320px;margin:0 auto;padding:56px 40px 0}
+.gmast__kicker{text-align:center;margin-bottom:14px}
+.gmast__stage{position:relative}
+.gmast__title{font-size:clamp(2.4rem,9vw,6rem);line-height:.92;letter-spacing:-.02em;text-align:center;margin:0 0 16px}
 .gmast__title em{color:var(--gold);font-style:italic}
-.gmast__head .lead{margin:0 0 10px;max-width:320px}
-.gmast__strip{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:-46px;position:relative;z-index:2}
+.gmast__strip{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
 .gmast__tile{position:relative;aspect-ratio:3/4;overflow:hidden;border:1px solid var(--line);background:var(--dark)}
 .gmast__tile img{width:100%;height:100%;object-fit:cover}
 .gmast__tile figcaption{position:absolute;left:0;right:0;bottom:0;padding:8px 10px;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--cream);background:linear-gradient(transparent,rgba(23,21,19,.85))}
-.gmast__strip>*:nth-child(2){margin-top:34px}
-.gmast__strip>*:nth-child(4){margin-top:58px}
+.gmast__strip>*:nth-child(2){margin-top:30px}
+.gmast__strip>*:nth-child(4){margin-top:52px}
+@media(min-width:761px){
+  .gmast__title{position:absolute;inset:0;z-index:3;margin:0;display:flex;align-items:center;justify-content:center;font-size:clamp(4.5rem,13vw,9.5rem);color:rgba(238,232,223,.72);mix-blend-mode:screen;pointer-events:none}
+}
 
 .before-after{max-width:680px;margin:56px auto 44px}
 .before-after__label{display:block;margin-bottom:12px;text-align:center}
@@ -58,25 +62,27 @@
 .tile__expand{position:absolute;right:10px;top:10px;width:30px;height:30px;border-radius:50%;background:rgba(23,21,19,.72);border:1px solid var(--line);color:var(--cream);display:flex;align-items:center;justify-content:center;font-size:14px;opacity:0;transform:translateY(-4px);transition:.25s}
 .tile:hover .tile__expand,.tile:focus-visible .tile__expand{opacity:1;transform:none}
 
-@supports selector(:has(a)){
-  .gallery-tabs:has(#gcat-all:checked) .panel--all{display:block}
-  .gallery-tabs:has(#gcat-color:checked) .panel--color{display:block}
-  .gallery-tabs:has(#gcat-braids:checked) .panel--braids{display:block}
-  .gallery-tabs:has(#gcat-style:checked) .panel--style{display:block}
-  .gallery-tabs:has(#gcat-cut:checked) .panel--cut{display:block}
-  .gallery-tabs:has(#gcat-nails:checked) .panel--nails{display:block}
-  .gallery-tabs:has(#gcat-all:checked) label[for="gcat-all"],
-  .gallery-tabs:has(#gcat-color:checked) label[for="gcat-color"],
-  .gallery-tabs:has(#gcat-braids:checked) label[for="gcat-braids"],
-  .gallery-tabs:has(#gcat-style:checked) label[for="gcat-style"],
-  .gallery-tabs:has(#gcat-cut:checked) label[for="gcat-cut"],
-  .gallery-tabs:has(#gcat-nails:checked) label[for="gcat-nails"]{background:var(--gold);border-color:var(--gold);color:#1b1815}
-}
+/* compact category picker — replaces the always-expanded grid; clicking a
+   category feels like opening its own view instead of revealing more scroll */
+.gpicker{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
+.gpicker__tile{position:relative;aspect-ratio:3/4;overflow:hidden;border:1px solid var(--line);background:var(--dark);cursor:pointer;padding:0}
+.gpicker__tile img{width:100%;height:100%;object-fit:cover;transition:transform .4s cubic-bezier(.2,.8,.2,1)}
+.gpicker__tile:hover img{transform:scale(1.06)}
+.gpicker__tile span{position:absolute;left:0;right:0;bottom:0;padding:10px 6px;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--cream);background:linear-gradient(transparent,rgba(23,21,19,.88));text-align:center}
 
-/* asymmetric collage rhythm — "Всички" only, desktop only (neutralised below 760px) */
-.panel--all .grid{grid-template-columns:repeat(4,1fr)}
-.panel--all .tile:nth-child(6n+3){grid-column:span 2}
-.panel--all .tile:nth-child(6n+5){margin-top:28px}
+.gpicker,.gbrowse{scroll-margin-top:80px}
+.gbrowse__bar{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:20px}
+.gbrowse__back{display:inline-flex;align-items:center;gap:6px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.gbrowse__back:hover{color:var(--gold)}
+.gbrowse__filter{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:999px;padding:8px 16px 8px 12px;color:var(--muted)}
+.gbrowse__filter svg{flex-shrink:0}
+.gbrowse__filter select{background:transparent;border:0;color:var(--cream);font:inherit;font-size:11px;letter-spacing:.1em;text-transform:uppercase;outline:none;cursor:pointer}
+.gbrowse__filter select option{background:var(--dark);color:var(--cream)}
+
+/* asymmetric collage rhythm on the active category grid, desktop only */
+.gbrowse .grid{grid-template-columns:repeat(4,1fr)}
+.gbrowse .tile:nth-child(6n+3){grid-column:span 2}
+.gbrowse .tile:nth-child(6n+5){margin-top:28px}
 
 .cta-band{text-align:center;padding:44px 40px;background:var(--dark);border-top:1px solid var(--line)}
 .cta-band h2{font-size:clamp(1.5rem,3vw,2.1rem)}
@@ -94,21 +100,22 @@ dialog.lightbox::backdrop{background:rgba(10,9,8,.92)}
 .lightbox__count{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);font:italic 500 14px var(--serif);color:var(--muted);letter-spacing:.04em}
 
 @media(max-width:900px){
-  .grid,.panel--all .grid{grid-template-columns:repeat(2,1fr)}
-  .panel--all .tile:nth-child(6n+3){grid-column:span 2}
+  .grid,.gbrowse .grid{grid-template-columns:repeat(2,1fr)}
+  .gbrowse .tile:nth-child(6n+3){grid-column:span 2}
   .gmast__strip{grid-template-columns:repeat(2,1fr)}
+  .gpicker{grid-template-columns:repeat(3,1fr)}
 }
 @media(max-width:760px){
   .section{padding:36px 20px}
-  .grid,.panel--all .grid{grid-template-columns:repeat(2,1fr);gap:8px}
-  .panel--all .tile:nth-child(6n+3),.panel--all .tile:nth-child(6n+5){grid-column:auto;margin-top:0}
+  .grid,.gbrowse .grid{grid-template-columns:repeat(2,1fr);gap:8px}
+  .gbrowse .tile:nth-child(6n+3),.gbrowse .tile:nth-child(6n+5){grid-column:auto;margin-top:0}
   .lightbox__prev,.lightbox__next{width:38px;height:38px;font-size:15px}
   .gmast{padding:40px 20px 0}
-  .gmast__title{font-size:clamp(2.6rem,15vw,3.4rem)}
-  .gmast__head{padding-bottom:14px}
-  .gmast__strip{grid-template-columns:repeat(2,1fr);margin-top:0;gap:8px}
+  .gmast__title{font-size:clamp(2.2rem,13vw,3rem)}
+  .gmast__strip{grid-template-columns:repeat(2,1fr);gap:8px}
   .gmast__strip>*{margin-top:0!important}
   .gmast__strip>*:nth-child(3),.gmast__strip>*:nth-child(4){display:none}
+  .gpicker{grid-template-columns:repeat(2,1fr);gap:8px}
 }
 </style>
 </head>
@@ -129,18 +136,15 @@ dialog.lightbox::backdrop{background:rgba(10,9,8,.92)}
 </header>
 
 <section class="gmast">
-  <div class="gmast__head">
-    <div>
-      <div class="kicker">Портфолио</div>
-      <h1 class="gmast__title">Гал<em>е</em>рия</h1>
+  <div class="kicker gmast__kicker">Портфолио</div>
+  <div class="gmast__stage">
+    <h1 class="gmast__title">Гал<em>е</em>рия</h1>
+    <div class="gmast__strip">
+      <div class="gmast__tile"><img src="images/gallery/g49.webp" alt="Висока прическа с блясък" width="1100" height="1467" loading="eager"></div>
+      <div class="gmast__tile"><img src="images/gallery/g46.webp" alt="Каре с керемидено оцветяване" width="1100" height="1467" loading="eager"><figcaption>Подстригване</figcaption></div>
+      <div class="gmast__tile"><img src="images/gallery/g59.webp" alt="Плетена корона с къдрици" width="1100" height="1467" loading="lazy"></div>
+      <div class="gmast__tile"><img src="images/gallery/g53.webp" alt="Наситен оранжев цвят" width="1100" height="1467" loading="lazy"><figcaption>Боядисване</figcaption></div>
     </div>
-    <p class="lead">Реални резултати от студиото — филтрирай по категория по-долу.</p>
-  </div>
-  <div class="gmast__strip">
-    <div class="gmast__tile"><img src="images/gallery/g49.webp" alt="Висока прическа с блясък" width="1100" height="1467" loading="eager"></div>
-    <div class="gmast__tile"><img src="images/gallery/g46.webp" alt="Каре с керемидено оцветяване" width="1100" height="1467" loading="eager"><figcaption>Подстригване</figcaption></div>
-    <div class="gmast__tile"><img src="images/gallery/g59.webp" alt="Плетена корона с къдрици" width="1100" height="1467" loading="lazy"></div>
-    <div class="gmast__tile"><img src="images/gallery/g53.webp" alt="Наситен оранжев цвят" width="1100" height="1467" loading="lazy"><figcaption>Боядисване</figcaption></div>
   </div>
 </section>
 
@@ -159,26 +163,31 @@ dialog.lightbox::backdrop{background:rgba(10,9,8,.92)}
     </div>
   </div>
 
-  <div class="gallery-tabs">
-    <div class="tabbar">
-      <input type="radio" name="gcat" id="gcat-all" class="vh-radio" checked><label for="gcat-all" class="tab">Всички</label>
-      <input type="radio" name="gcat" id="gcat-color" class="vh-radio"><label for="gcat-color" class="tab">Боядисване</label>
-      <input type="radio" name="gcat" id="gcat-braids" class="vh-radio"><label for="gcat-braids" class="tab">Плитки</label>
-      <input type="radio" name="gcat" id="gcat-style" class="vh-radio"><label for="gcat-style" class="tab">Прическа</label>
-      <input type="radio" name="gcat" id="gcat-cut" class="vh-radio"><label for="gcat-cut" class="tab">Подстригване</label>
-      <input type="radio" name="gcat" id="gcat-nails" class="vh-radio"><label for="gcat-nails" class="tab">Маникюр</label>
-    </div>
+  <div class="gpicker" id="gpicker">
+    <button class="gpicker__tile" type="button" data-cat="all"><img src="images/gallery/g61.webp" alt="" loading="lazy"><span>Всички</span></button>
+    <button class="gpicker__tile" type="button" data-cat="color"><img src="images/gallery/g47.webp" alt="" loading="lazy"><span>Боядисване</span></button>
+    <button class="gpicker__tile" type="button" data-cat="braids"><img src="images/gallery/g57.webp" alt="" loading="lazy"><span>Плитки</span></button>
+    <button class="gpicker__tile" type="button" data-cat="style"><img src="images/gallery/g49.webp" alt="" loading="lazy"><span>Прическа</span></button>
+    <button class="gpicker__tile" type="button" data-cat="cut"><img src="images/gallery/g46.webp" alt="" loading="lazy"><span>Подстригване</span></button>
+    <button class="gpicker__tile" type="button" data-cat="nails"><img src="images/gallery/g64.webp" alt="" loading="lazy"><span>Маникюр</span></button>
+  </div>
 
-    <div class="panels">
-      <div class="panel panel--all">
-        <div class="grid" id="grid-all"></div>
-      </div>
-      <div class="panel panel--color"><div class="grid" id="grid-color"></div></div>
-      <div class="panel panel--braids"><div class="grid" id="grid-braids"></div></div>
-      <div class="panel panel--style"><div class="grid" id="grid-style"></div></div>
-      <div class="panel panel--cut"><div class="grid" id="grid-cut"></div></div>
-      <div class="panel panel--nails"><div class="grid" id="grid-nails"></div></div>
+  <div class="gbrowse" id="gbrowse" hidden>
+    <div class="gbrowse__bar">
+      <button class="gbrowse__back" id="gbackBtn" type="button">&#8592; Категории</button>
+      <label class="gbrowse__filter">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="4 4 20 4 14 12 14 19 10 21 10 12 4 4"></polygon></svg>
+        <select id="gbrowseSelect">
+          <option value="all">Всички</option>
+          <option value="color">Боядисване</option>
+          <option value="braids">Плитки</option>
+          <option value="style">Прическа</option>
+          <option value="cut">Подстригване</option>
+          <option value="nails">Маникюр</option>
+        </select>
+      </label>
     </div>
+    <div class="grid" id="grid-active"></div>
   </div>
 </section>
 
@@ -196,15 +205,13 @@ dialog.lightbox::backdrop{background:rgba(10,9,8,.92)}
   <div class="lightbox__inner">
     <img id="lightboxImg" src="" alt="">
   </div>
+  <button class="lightbox__close" id="lbClose" aria-label="Затвори" hidden>&times;</button>
+  <button class="lightbox__prev" id="lbPrev" aria-label="Предишна снимка" hidden>&#8249;</button>
+  <button class="lightbox__next" id="lbNext" aria-label="Следваща снимка" hidden>&#8250;</button>
+  <div class="lightbox__count" id="lbCount" hidden></div>
 </dialog>
-<button class="lightbox__close" id="lbClose" aria-label="Затвори" hidden>&times;</button>
-<button class="lightbox__prev" id="lbPrev" aria-label="Предишна снимка" hidden>&#8249;</button>
-<button class="lightbox__next" id="lbNext" aria-label="Следваща снимка" hidden>&#8250;</button>
-<div class="lightbox__count" id="lbCount" hidden></div>
 
 <script>
-// Забележка за бъдещо разширение: нова категория (напр. "Видео") се добавя с
-// още един radio+label в .tabbar, съответен .panel в HTML и запис тук в catMap.
 const photos = [
   {f:'g37',cat:'color',alt:'Балаяж на дълга чуплива коса'},
   {f:'g38',cat:'color',alt:'Финни кичури на тъмна коса'},
@@ -227,25 +234,45 @@ const photos = [
   {f:'g65',cat:'color',alt:'Контрастни кичури'},
   {f:'g66',cat:'color',alt:'Контрастни кичури на тъмна коса'}
 ];
-const catMap = {color:'grid-color',braids:'grid-braids',style:'grid-style',cut:'grid-cut',nails:'grid-nails'};
-const gridAll = document.getElementById('grid-all');
-const gridsByCat = {};
-Object.values(catMap).forEach(id => gridsByCat[id] = document.getElementById(id));
+const gpicker = document.getElementById('gpicker');
+const gbrowse = document.getElementById('gbrowse');
+const gridActive = document.getElementById('grid-active');
+const gbackBtn = document.getElementById('gbackBtn');
+const gSelect = document.getElementById('gbrowseSelect');
+let activeSet = photos;
 
-photos.forEach((p, i) => {
-  const makeTile = () => {
+function renderGrid(cat) {
+  activeSet = cat === 'all' ? photos : photos.filter(p => p.cat === cat);
+  gridActive.innerHTML = '';
+  activeSet.forEach((p, i) => {
     const btn = document.createElement('button');
     btn.className = 'tile';
     btn.type = 'button';
-    btn.dataset.index = i;
     btn.innerHTML = `<img src="images/gallery/${p.f}.webp" alt="${p.alt}" loading="lazy" width="1100" height="1467"><span class="tile__tag">${p.alt}</span><span class="tile__expand" aria-hidden="true">&#8599;</span>`;
     btn.addEventListener('click', () => openLightbox(i));
-    return btn;
-  };
-  gridAll.appendChild(makeTile());
-  const targetGrid = gridsByCat[catMap[p.cat]];
-  if (targetGrid) targetGrid.appendChild(makeTile());
+    gridActive.appendChild(btn);
+  });
+}
+
+function openCategory(cat) {
+  renderGrid(cat);
+  gSelect.value = cat;
+  gpicker.hidden = true;
+  gbrowse.hidden = false;
+  gbrowse.scrollIntoView({behavior: 'smooth', block: 'start'});
+}
+
+function closeCategory() {
+  gbrowse.hidden = true;
+  gpicker.hidden = false;
+  gpicker.scrollIntoView({behavior: 'smooth', block: 'start'});
+}
+
+document.querySelectorAll('.gpicker__tile').forEach(btn => {
+  btn.addEventListener('click', () => openCategory(btn.dataset.cat));
 });
+gbackBtn.addEventListener('click', closeCategory);
+gSelect.addEventListener('change', () => renderGrid(gSelect.value));
 
 const lb = document.getElementById('lightbox');
 const lbImg = document.getElementById('lightboxImg');
@@ -262,10 +289,10 @@ function openLightbox(i) {
   lbClose.hidden = false; lbPrev.hidden = false; lbNext.hidden = false; lbCount.hidden = false;
 }
 function showCurrent() {
-  const p = photos[current];
+  const p = activeSet[current];
   lbImg.src = `images/gallery/${p.f}.webp`;
   lbImg.alt = p.alt;
-  lbCount.textContent = `${current + 1} / ${photos.length}`;
+  lbCount.textContent = `${current + 1} / ${activeSet.length}`;
 }
 function closeLightbox() {
   lb.close();
@@ -274,8 +301,8 @@ function closeLightbox() {
 lbClose.addEventListener('click', closeLightbox);
 lb.addEventListener('click', e => { if (e.target === lb) closeLightbox(); });
 lb.addEventListener('close', () => { lbClose.hidden = true; lbPrev.hidden = true; lbNext.hidden = true; lbCount.hidden = true; });
-lbPrev.addEventListener('click', () => { current = (current - 1 + photos.length) % photos.length; showCurrent(); });
-lbNext.addEventListener('click', () => { current = (current + 1) % photos.length; showCurrent(); });
+lbPrev.addEventListener('click', () => { current = (current - 1 + activeSet.length) % activeSet.length; showCurrent(); });
+lbNext.addEventListener('click', () => { current = (current + 1) % activeSet.length; showCurrent(); });
 window.addEventListener('keydown', e => {
   if (!lb.open) return;
   if (e.key === 'ArrowLeft') lbPrev.click();
