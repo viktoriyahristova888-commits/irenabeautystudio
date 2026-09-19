@@ -46,13 +46,6 @@
   .gmast__title{position:absolute;inset:0;z-index:3;margin:0;display:flex;align-items:center;justify-content:center;font-size:clamp(4.5rem,13vw,9.5rem);color:rgba(238,232,223,.72);mix-blend-mode:screen;pointer-events:none}
 }
 
-.before-after{max-width:680px;margin:56px auto 44px}
-.before-after__label{display:block;margin-bottom:12px;text-align:center}
-.before-after__grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;border:1px solid var(--line)}
-.ba-card{position:relative;margin:0;aspect-ratio:3/4;overflow:hidden}
-.ba-card img{width:100%;height:100%;object-fit:cover}
-.ba-card figcaption{position:absolute;bottom:0;left:0;right:0;padding:8px;text-align:center;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--cream);background:linear-gradient(transparent,rgba(23,21,19,.85))}
-
 .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
 .tile{position:relative;overflow:hidden;aspect-ratio:3/4;background:var(--dark);border:0;padding:0;cursor:pointer;display:block;width:100%}
 .tile img{width:100%;height:100%;object-fit:cover;transition:transform .5s cubic-bezier(.2,.8,.2,1),filter .5s}
@@ -120,6 +113,7 @@ dialog.lightbox::backdrop{background:rgba(10,9,8,.92)}
 <header class="top">
   <a class="logo" href="index.html">Irena <em>Beauty</em></a>
   <nav class="top__nav" aria-label="Основна навигация">
+    <a href="services.html">Услуги</a>
     <a href="extensions.html">Екстеншъни</a>
     <a href="pricing.html">Цени</a>
     <a href="gallery.html" aria-current="page">Галерия</a>
@@ -145,20 +139,6 @@ dialog.lightbox::backdrop{background:rgba(10,9,8,.92)}
 </section>
 
 <section class="section">
-  <div class="before-after reveal" id="before-after">
-    <div class="kicker before-after__label">Преди / След · Екстеншъни</div>
-    <div class="before-after__grid">
-      <figure class="ba-card">
-        <img src="images/gallery/g43.webp" alt="Коса преди поставяне на екстеншъни" width="1100" height="1467" loading="lazy">
-        <figcaption>Преди</figcaption>
-      </figure>
-      <figure class="ba-card">
-        <img src="images/gallery/g41.webp" alt="Коса след поставяне на екстеншъни" width="1100" height="1467" loading="lazy">
-        <figcaption>След</figcaption>
-      </figure>
-    </div>
-  </div>
-
   <div class="gpicker" id="gpicker">
     <button class="gpicker__tile" type="button" data-cat="all"><img src="images/gallery/g61.webp" alt="" loading="lazy"><span>Всички</span></button>
     <button class="gpicker__tile" type="button" data-cat="color"><img src="images/gallery/g47.webp" alt="" loading="lazy"><span>Боядисване</span></button>

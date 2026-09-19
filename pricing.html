@@ -79,6 +79,7 @@
 <header class="top">
   <a class="logo" href="index.html">Irena <em>Beauty</em></a>
   <nav class="top__nav" aria-label="Основна навигация">
+    <a href="services.html">Услуги</a>
     <a href="extensions.html">Екстеншъни</a>
     <a href="pricing.html" aria-current="page">Цени</a>
     <a href="gallery.html">Галерия</a>
@@ -229,6 +230,12 @@
 </footer>
 
 <script>
+const hashCat = location.hash.replace('#', '');
+if (['cat-hair', 'cat-mani', 'cat-pedi', 'cat-ext'].includes(hashCat)) {
+  const radio = document.getElementById(hashCat);
+  if (radio) radio.checked = true;
+}
+
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 if (!reduceMotion && 'IntersectionObserver' in window) {
   const io = new IntersectionObserver(entries => {

@@ -38,19 +38,6 @@
 .hero h1 em{color:var(--gold);font-style:italic}
 .hero__actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
 
-/* funnel — the homepage's only job is to point at the four inner pages */
-.funnel-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-.funnel-card{position:relative;display:block;overflow:hidden;aspect-ratio:3/4;border:1px solid var(--line)}
-.funnel-card img{width:100%;height:100%;object-fit:cover;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
-.funnel-card:hover img{transform:scale(1.045)}
-.funnel-card__label{position:absolute;left:0;right:0;bottom:0;padding:16px}
-.funnel-card__label .kicker{display:block;margin-bottom:4px}
-.funnel-card__label h3{font-size:19px;color:var(--cream)}
-.funnel-card__label:before{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(transparent,rgba(23,21,19,.92))}
-
-@media(max-width:900px){
-  .funnel-grid{grid-template-columns:repeat(2,1fr)}
-}
 @media(max-width:760px){
   .hero{padding:84px 20px 40px}
 }
@@ -85,6 +72,7 @@
 <header class="top">
   <a class="logo" href="index.html">Irena <em>Beauty</em></a>
   <nav class="top__nav" aria-label="Основна навигация">
+    <a href="services.html">Услуги</a>
     <a href="extensions.html">Екстеншъни</a>
     <a href="pricing.html">Цени</a>
     <a href="gallery.html">Галерия</a>
@@ -117,19 +105,19 @@
   <div class="funnel-grid">
     <a class="funnel-card" href="extensions.html">
       <img src="images/gallery/g41.webp" alt="Екстеншъни от естествена коса" width="1100" height="1467" loading="lazy">
-      <span class="funnel-card__label"><span class="kicker">01</span><h3>Екстеншъни</h3></span>
+      <span class="funnel-card__label"><h3>Екстеншъни</h3></span>
     </a>
-    <a class="funnel-card" href="pricing.html">
-      <img src="images/produkti-shelf.webp" alt="Ценоразпис" width="1000" height="563" loading="lazy">
-      <span class="funnel-card__label"><span class="kicker">02</span><h3>Цени</h3></span>
+    <a class="funnel-card" href="services.html">
+      <img src="images/produkti-shelf.webp" alt="Услуги" width="1000" height="563" loading="lazy">
+      <span class="funnel-card__label"><h3>Услуги</h3></span>
     </a>
     <a class="funnel-card" href="gallery.html">
       <img src="images/gallery/g66.webp" alt="Галерия с реални резултати" width="1100" height="1467" loading="lazy">
-      <span class="funnel-card__label"><span class="kicker">03</span><h3>Галерия</h3></span>
+      <span class="funnel-card__label"><h3>Галерия</h3></span>
     </a>
     <a class="funnel-card" href="contact.html">
       <img src="images/hero-main.webp" alt="Контакти и запазване на час" width="1600" height="893" loading="lazy">
-      <span class="funnel-card__label"><span class="kicker">04</span><h3>Контакти</h3></span>
+      <span class="funnel-card__label"><h3>Контакти</h3></span>
     </a>
   </div>
 </section>

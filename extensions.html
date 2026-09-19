@@ -32,12 +32,14 @@
 .process-strip{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:28px}
 .process-clip{position:relative;border:1px solid var(--line);background:var(--dark)}
 .process-clip video{width:100%;aspect-ratio:4/5;object-fit:cover;display:block}
-.extensions-proof{display:grid;grid-template-columns:auto 1fr;gap:32px;align-items:center}
-.ba-preview{position:relative;display:grid;grid-template-columns:1fr 1fr;width:220px;border:1px solid var(--line);overflow:hidden;flex-shrink:0}
-.ba-preview img{width:100%;height:100%;object-fit:cover;aspect-ratio:3/4}
-.ba-preview__label{position:absolute;bottom:0;left:0;right:0;padding:6px;text-align:center;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--cream);background:linear-gradient(transparent,rgba(23,21,19,.85))}
-.extensions-proof__text{max-width:420px}
-.extensions-proof__text .lead{margin-top:0}
+.before-after{max-width:680px;margin:44px auto 0}
+.before-after__label{display:block;margin-bottom:12px;text-align:center}
+.before-after__grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;border:1px solid var(--line)}
+.ba-card{position:relative;margin:0;aspect-ratio:3/4;overflow:hidden}
+.ba-card img{width:100%;height:100%;object-fit:cover}
+.ba-card figcaption{position:absolute;bottom:0;left:0;right:0;padding:8px;text-align:center;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--cream);background:linear-gradient(transparent,rgba(23,21,19,.85))}
+.before-after__cta{text-align:center;margin-top:22px}
+.before-after__cta .lead{margin-left:auto;margin-right:auto}
 
 .studio-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:20px}
 .studio-card{position:relative;margin:0;overflow:hidden;border:1px solid var(--line)}
@@ -54,7 +56,6 @@
 
 @media(max-width:900px){
   .studio-grid{grid-template-columns:1fr}
-  .extensions-proof{grid-template-columns:1fr;justify-items:center;text-align:center}
 }
 @media(max-width:600px){
   .swatch-strip{grid-template-columns:repeat(2,1fr)}
@@ -66,6 +67,7 @@
 <header class="top">
   <a class="logo" href="index.html">Irena <em>Beauty</em></a>
   <nav class="top__nav" aria-label="Основна навигация">
+    <a href="services.html">Услуги</a>
     <a href="extensions.html" aria-current="page">Екстеншъни</a>
     <a href="pricing.html">Цени</a>
     <a href="gallery.html">Галерия</a>
@@ -102,13 +104,19 @@
     </div>
   </div>
 
-  <div class="extensions-proof">
-    <a class="ba-preview" href="gallery.html#before-after">
-      <img src="images/gallery/g43.webp" alt="Преди" width="1100" height="1467" loading="lazy">
-      <img src="images/gallery/g41.webp" alt="След" width="1100" height="1467" loading="lazy">
-      <span class="ba-preview__label">Преди / След ↗</span>
-    </a>
-    <div class="extensions-proof__text">
+  <div class="before-after">
+    <div class="kicker before-after__label">Преди / След</div>
+    <div class="before-after__grid">
+      <figure class="ba-card">
+        <img src="images/gallery/g43.webp" alt="Коса преди поставяне на екстеншъни" width="1100" height="1467" loading="lazy">
+        <figcaption>Преди</figcaption>
+      </figure>
+      <figure class="ba-card">
+        <img src="images/gallery/g41.webp" alt="Коса след поставяне на екстеншъни" width="1100" height="1467" loading="lazy">
+        <figcaption>След</figcaption>
+      </figure>
+    </div>
+    <div class="before-after__cta">
       <p class="lead">Консултация преди всяка процедура — определяме метод, дължина и количество коса според твоята.</p>
       <a class="btn btn--gold" href="contact.html">Запази консултация ↗</a>
     </div>
