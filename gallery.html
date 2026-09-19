@@ -35,13 +35,6 @@
 .gmast__kicker{text-align:center;margin-bottom:14px}
 .gmast__stage{position:relative}
 .gmast__title{font-size:clamp(2.4rem,9vw,6rem);line-height:.92;letter-spacing:-.02em;text-align:center;margin:0 0 16px}
-.gmast__title em{color:var(--gold);font-style:italic}
-.gmast__strip{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-.gmast__tile{position:relative;aspect-ratio:3/4;overflow:hidden;border:1px solid var(--line);background:var(--dark)}
-.gmast__tile img{width:100%;height:100%;object-fit:cover}
-.gmast__tile figcaption{position:absolute;left:0;right:0;bottom:0;padding:8px 10px;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--cream);background:linear-gradient(transparent,rgba(23,21,19,.85))}
-.gmast__strip>*:nth-child(2){margin-top:30px}
-.gmast__strip>*:nth-child(4){margin-top:52px}
 @media(min-width:761px){
   .gmast__title{position:absolute;inset:0;z-index:3;margin:0;display:flex;align-items:center;justify-content:center;font-size:clamp(4.5rem,13vw,9.5rem);color:rgba(238,232,223,.72);mix-blend-mode:screen;pointer-events:none}
 }
@@ -62,6 +55,9 @@
 .gpicker__tile img{width:100%;height:100%;object-fit:cover;transition:transform .4s cubic-bezier(.2,.8,.2,1)}
 .gpicker__tile:hover img{transform:scale(1.06)}
 .gpicker__tile span{position:absolute;left:0;right:0;bottom:0;padding:10px 6px;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--cream);background:linear-gradient(transparent,rgba(23,21,19,.88));text-align:center}
+.gmast .gpicker>*:nth-child(2){margin-top:20px}
+.gmast .gpicker>*:nth-child(4){margin-top:36px}
+.gmast .gpicker>*:nth-child(6){margin-top:14px}
 
 .gpicker,.gbrowse{scroll-margin-top:80px}
 .gbrowse__bar{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:20px}
@@ -91,7 +87,6 @@ dialog.lightbox::backdrop{background:rgba(10,9,8,.92)}
 @media(max-width:900px){
   .grid,.gbrowse .grid{grid-template-columns:repeat(2,1fr)}
   .gbrowse .tile:nth-child(6n+3){grid-column:span 2}
-  .gmast__strip{grid-template-columns:repeat(2,1fr)}
   .gpicker{grid-template-columns:repeat(3,1fr)}
 }
 @media(max-width:760px){
@@ -101,10 +96,8 @@ dialog.lightbox::backdrop{background:rgba(10,9,8,.92)}
   .lightbox__prev,.lightbox__next{width:38px;height:38px;font-size:15px}
   .gmast{padding:40px 20px 0}
   .gmast__title{font-size:clamp(2.2rem,13vw,3rem)}
-  .gmast__strip{grid-template-columns:repeat(2,1fr);gap:8px}
-  .gmast__strip>*{margin-top:0!important}
-  .gmast__strip>*:nth-child(3),.gmast__strip>*:nth-child(4){display:none}
   .gpicker{grid-template-columns:repeat(2,1fr);gap:8px}
+  .gmast .gpicker>*{margin-top:0!important}
 }
 </style>
 </head>
@@ -128,26 +121,19 @@ dialog.lightbox::backdrop{background:rgba(10,9,8,.92)}
 <section class="gmast">
   <div class="kicker gmast__kicker">Портфолио</div>
   <div class="gmast__stage">
-    <h1 class="gmast__title">Гал<em>е</em>рия</h1>
-    <div class="gmast__strip">
-      <div class="gmast__tile"><img src="images/gallery/g49.webp" alt="Висока прическа с блясък" width="1100" height="1467" loading="eager"></div>
-      <div class="gmast__tile"><img src="images/gallery/g46.webp" alt="Каре с керемидено оцветяване" width="1100" height="1467" loading="eager"><figcaption>Подстригване</figcaption></div>
-      <div class="gmast__tile"><img src="images/gallery/g59.webp" alt="Плетена корона с къдрици" width="1100" height="1467" loading="lazy"></div>
-      <div class="gmast__tile"><img src="images/gallery/g53.webp" alt="Наситен оранжев цвят" width="1100" height="1467" loading="lazy"><figcaption>Боядисване</figcaption></div>
+    <h1 class="gmast__title">Галерия</h1>
+    <div class="gpicker" id="gpicker">
+      <button class="gpicker__tile" type="button" data-cat="all"><img src="images/gallery/g61.webp" alt="" loading="eager"><span>Всички</span></button>
+      <button class="gpicker__tile" type="button" data-cat="color"><img src="images/gallery/g66.webp" alt="" loading="eager"><span>Боядисване</span></button>
+      <button class="gpicker__tile" type="button" data-cat="braids"><img src="images/gallery/g48.webp" alt="" loading="eager"><span>Плитки</span></button>
+      <button class="gpicker__tile" type="button" data-cat="style"><img src="images/gallery/g65.webp" alt="" loading="lazy"><span>Прическа</span></button>
+      <button class="gpicker__tile" type="button" data-cat="cut"><img src="images/gallery/g46.webp" alt="" loading="lazy"><span>Подстригване</span></button>
+      <button class="gpicker__tile" type="button" data-cat="nails"><img src="images/gallery/g62.webp" alt="" loading="lazy"><span>Маникюр</span></button>
     </div>
   </div>
 </section>
 
 <section class="section">
-  <div class="gpicker" id="gpicker">
-    <button class="gpicker__tile" type="button" data-cat="all"><img src="images/gallery/g61.webp" alt="" loading="lazy"><span>Всички</span></button>
-    <button class="gpicker__tile" type="button" data-cat="color"><img src="images/gallery/g47.webp" alt="" loading="lazy"><span>Боядисване</span></button>
-    <button class="gpicker__tile" type="button" data-cat="braids"><img src="images/gallery/g57.webp" alt="" loading="lazy"><span>Плитки</span></button>
-    <button class="gpicker__tile" type="button" data-cat="style"><img src="images/gallery/g49.webp" alt="" loading="lazy"><span>Прическа</span></button>
-    <button class="gpicker__tile" type="button" data-cat="cut"><img src="images/gallery/g46.webp" alt="" loading="lazy"><span>Подстригване</span></button>
-    <button class="gpicker__tile" type="button" data-cat="nails"><img src="images/gallery/g64.webp" alt="" loading="lazy"><span>Маникюр</span></button>
-  </div>
-
   <div class="gbrowse" id="gbrowse" hidden>
     <div class="gbrowse__bar">
       <button class="gbrowse__back" id="gbackBtn" type="button">&#8592; Категории</button>
@@ -189,17 +175,18 @@ dialog.lightbox::backdrop{background:rgba(10,9,8,.92)}
 
 <script>
 const photos = [
-  {f:'g37',cat:'color',alt:'Балаяж на дълга чуплива коса'},
+  {f:'g37',cat:'style',alt:'Обемна прическа с меки вълни'},
   {f:'g38',cat:'color',alt:'Финни кичури на тъмна коса'},
   {f:'g44',cat:'nails',alt:'Френски маникюр с камъчета'},
   {f:'g46',cat:'cut',alt:'Каре с керемидено оцветяване'},
-  {f:'g47',cat:'color',alt:'Наситен меден цвят'},
+  {f:'g47',cat:'cut',alt:'Късо каре с меден оттенък'},
   {f:'g48',cat:'braids',alt:'Плитка на руса коса'},
   {f:'g49',cat:'style',alt:'Висока прическа с блясък'},
   {f:'g50',cat:'braids',alt:'Плитка на кок с плитки детайли'},
   {f:'g51',cat:'color',alt:'Каре с виолетови кичури'},
-  {f:'g53',cat:'color',alt:'Наситен оранжев цвят'},
-  {f:'g55',cat:'braids',alt:'Сложна плетена корона'},
+  {f:'g52',cat:'braids',alt:'Кок с плетени детайли'},
+  {f:'g53',cat:'style',alt:'Прическа с плетени детайли'},
+  {f:'g55',cat:'color',alt:'Многослойна подстрижка в наситен оранжев цвят'},
   {f:'g57',cat:'braids',alt:'Плетена висока прическа'},
   {f:'g58',cat:'braids',alt:'Единична плитка'},
   {f:'g59',cat:'braids',alt:'Плетена корона с къдрици'},
@@ -207,7 +194,7 @@ const photos = [
   {f:'g61',cat:'color',alt:'Наситен червен цвят'},
   {f:'g62',cat:'nails',alt:'Френски маникюр'},
   {f:'g64',cat:'nails',alt:'Маникюр с nail art'},
-  {f:'g65',cat:'color',alt:'Контрастни кичури'},
+  {f:'g65',cat:'style',alt:'Прическа с контрастни кичури'},
   {f:'g66',cat:'color',alt:'Контрастни кичури на тъмна коса'}
 ];
 const gpicker = document.getElementById('gpicker');

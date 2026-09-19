@@ -31,7 +31,10 @@
 .swatch{width:100%;aspect-ratio:9/16;object-fit:cover;border:1px solid var(--line);background:var(--dark);display:block}
 .swatch-strip>*:nth-child(3n+2){margin-top:28px}
 .swatch-strip>*:nth-child(3n+3){margin-top:14px}
-.process-strip{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:28px}
+.method-list{list-style:none;margin:14px 0 0;padding:0;display:flex;flex-direction:column;gap:8px}
+.method-list li{padding-left:20px;position:relative;color:var(--muted);font-size:15px}
+.method-list li:before{content:'—';position:absolute;left:0;color:var(--gold)}
+.process-strip{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:28px;margin-top:28px}
 .process-clip{position:relative;border:1px solid var(--line);background:var(--dark)}
 .process-clip video{width:100%;aspect-ratio:4/5;object-fit:cover;display:block}
 .before-after{max-width:680px;margin:0 auto}
@@ -43,9 +46,9 @@
 .before-after__cta{text-align:center;margin-top:22px}
 .before-after__cta .lead{margin-left:auto;margin-right:auto}
 
-.studio-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:20px}
+.studio-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}
 .studio-card{position:relative;margin:0;overflow:hidden;border:1px solid var(--line)}
-.studio-card img{width:100%;height:100%;object-fit:cover}
+.studio-card img{width:100%;height:auto;aspect-ratio:3/4;object-fit:cover;object-position:center 40%}
 .studio-card figcaption{padding:16px 18px;font-size:13px;color:var(--muted);background:var(--black)}
 
 .faq{max-width:760px;margin:0 auto}
@@ -97,9 +100,13 @@
 
 <section class="section reveal">
   <div class="section-head">
-    <div class="kicker">Процес</div>
-    <h2>Как протича процедурата</h2>
-    <p class="section-lead">Всяка процедура започва с преглед на естествената коса и избор на метод, преди да преминем към поставянето.</p>
+    <div class="kicker">Удължаване с естествена коса</div>
+    <h2>Методи за удължаване</h2>
+    <ul class="method-list">
+      <li>Кератинови кичури</li>
+      <li>Капси</li>
+      <li>UV-светлина (V-Light)</li>
+    </ul>
   </div>
   <div class="process-strip">
     <div class="process-clip">
@@ -153,11 +160,11 @@
   </div>
   <div class="studio-grid">
     <figure class="studio-card">
-      <img src="images/produkti-shelf.webp" alt="Професионални продукти CHI в студиото" width="1000" height="563" loading="lazy">
+      <img src="images/studio-shelf.webp" alt="Професионални продукти в студиото" width="651" height="1190" loading="lazy">
       <figcaption>Работим с CHI, K18 и други професионални марки.</figcaption>
     </figure>
     <figure class="studio-card">
-      <img src="images/vlight-tech.webp" alt="V-Light UV технология за екстеншъни" width="1200" height="1460" loading="lazy">
+      <img src="images/uvlight-device.webp" alt="V-Light UV технология за екстеншъни" width="896" height="1195" loading="lazy">
       <figcaption>V-Light UV технология за екстеншъни от естествена коса.</figcaption>
     </figure>
   </div>
