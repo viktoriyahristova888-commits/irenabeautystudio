@@ -138,19 +138,10 @@ h1,h2,h3{font-family:var(--serif);font-weight:500;text-wrap:balance;margin:0}
 
 /* extensions spotlight */
 .swatch-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:14px}
-.swatch{width:100%;aspect-ratio:9/16;object-fit:cover;border:1px solid var(--line);background:var(--dark);display:block;cursor:pointer;transition:opacity .2s}
-.swatch:hover{opacity:.85}
+.swatch{width:100%;aspect-ratio:9/16;object-fit:cover;border:1px solid var(--line);background:var(--dark);display:block}
 .process-strip{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:28px}
 .process-clip{position:relative;border:1px solid var(--line);background:var(--dark)}
-.process-clip video{width:100%;aspect-ratio:4/5;object-fit:cover;display:block;cursor:pointer;transition:opacity .2s}
-.process-clip video:hover{opacity:.85}
-
-/* video lightbox */
-dialog.video-lightbox{border:0;padding:0;background:transparent;max-width:min(92vw,480px);margin:auto}
-dialog.video-lightbox::backdrop{background:rgba(10,9,8,.92)}
-dialog.video-lightbox video{width:100%;display:block;max-height:88vh}
-.video-lightbox__close{position:fixed;top:24px;right:24px;background:rgba(23,21,19,.7);color:var(--cream);border:1px solid var(--line);width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;cursor:pointer}
-.video-lightbox__close:hover{border-color:var(--gold);color:var(--gold)}
+.process-clip video{width:100%;aspect-ratio:4/5;object-fit:cover;display:block}
 .extensions-proof{display:grid;grid-template-columns:auto 1fr;gap:32px;align-items:center}
 .ba-preview{position:relative;display:grid;grid-template-columns:1fr 1fr;width:220px;border:1px solid var(--line);overflow:hidden;flex-shrink:0}
 .ba-preview img{width:100%;height:100%;object-fit:cover;aspect-ratio:3/4}
@@ -484,26 +475,35 @@ footer a:hover{color:var(--gold)}
     <div class="kicker">Въпроси</div>
     <h2>Често задавани въпроси</h2>
   </div>
-  <div class="faq">
+  <div class=”faq”>
     <details>
-      <summary>Как да си запазя час?</summary>
-      <p>През формата по-долу, обаждане на +359 88 286 8822 или съобщение във Viber или Facebook — потвърждаваме възможностите директно.</p>
+      <summary>Как мога да запазя час?</summary>
+      <p>Можеш да запазиш час чрез формата за записване, на телефон +359 88 286 8822 или с лично съобщение във Viber или Facebook. След като се свържеш с нас, ще уточним удобен за теб ден и час и ще потвърдим записването.</p>
     </details>
     <details>
       <summary>Какво включва консултацията за екстеншъни?</summary>
-      <p>Определяме метод, дължина и количество коса според твоята. Обсъждаме заедно цвят, текстура и очакван резултат, преди да запазим дата за самата процедура.</p>
+      <p>По време на консултацията ще разгледаме състоянието и особеностите на естествената ти коса, за да изберем най-подходящия метод, дължина и количество екстеншъни. Ще обсъдим цвета, структурата и желания от теб резултат. Можеш да разгледаш наличните коси в салона и да избереш своя екстеншън на място. След като уточним всички детайли, ще ти предложим най-подходящото решение и ще обсъдим следващите стъпки.</p>
     </details>
     <details>
-      <summary>Какво е V-Light UV методът?</summary>
-      <p>Връзката между косъмите се втвърдява с UV светлина, вместо с топлина или лепило. Резултатът е лека и незабележима връзка — метод, подходящ и за по-тънка естествена коса.</p>
+      <summary>Какви методи за удължаване на косата предлагате?</summary>
+      <p>Предлагаме няколко метода за поставяне на екстеншъни. Подходящият метод се избира според състоянието на естествената коса, желания резултат и личните ти предпочитания.</p>
+      <p><strong>Кератинови кичури</strong> — При този метод отделни кичури се прикрепят към естествената коса чрез кератинова връзка. Той е подходящ за създаване на естествено изглеждаща дължина и плътност, като позволява прецизно разпределяне на кичурите.</p>
+      <p><strong>Капси</strong> — Екстеншъните се прикрепят към естествената коса чрез малки капси, без използване на лепило. Методът позволява лесно сваляне и подмяна на екстеншъните при необходимата поддръжка.</p>
+      <p><strong>V-Light UV</strong> — При този метод връзката между екстеншъна и естествената коса се фиксира с UV светлина. Така се създава изключително малка и дискретна връзка, което прави метода подходящ и за по-фина коса.</p>
+      <p>По време на консултацията ще ти помогнем да избереш метода, който най-добре отговаря на твоята коса и желания резултат.</p>
     </details>
     <details>
-      <summary>Как се грижа за екстеншъните?</summary>
-      <p>Разресвай внимателно от краищата нагоре и избягвай масла и силикони близо до връзката. Препоръчваме редовна поддръжка в салона, за да останат чисти и здрави.</p>
+      <summary>Как да се грижа за екстеншъните си?</summary>
+      <p>Правилната грижа е важна както за красивия вид на екстеншъните, така и за поддържането на естествената коса в добро състояние.</p>
+      <p>Не пропускай препоръчителната поддръжка според конкретния метод. Тя е важна за правилното преместване, подмяна или сваляне на екстеншъните, както и за предотвратяване на излишно опъване и заплитане на естествената коса.</p>
+      <p>Разресвай косата внимателно, като започваш от краищата и постепенно се придвижваш към корените. Използвай четка, предназначена за коса с екстеншъни.</p>
+      <p>При миене не търкай агресивно местата на прикрепване. След това подсуши косата добре и преди сън се увери, че е напълно суха. За да ограничиш заплитането, можеш да я прибираш в свободна плитка или ниска опашка.</p>
+      <p>Използвай продукти, подходящи за коса с екстеншъни. Избягвай да нанасяш масла, балсами и други тежки продукти директно върху местата на прикрепване.</p>
+      <p>Когато използваш преса, маша или сешоар, избягвай прекомерната топлина в близост до връзките.</p>
     </details>
     <details>
-      <summary>Къде се намирате?</summary>
-      <p>В Бургас, ул. „Любен Каравелов“ 15 — картата в контактите по-долу показва точното местоположение.</p>
+      <summary>Къде се намира салонът?</summary>
+      <p>гр. Бургас, ул. „Любен Каравелов“ № 15 — картата в контактите по-долу показва точното местоположение.</p>
     </details>
   </div>
 </section>
@@ -554,11 +554,6 @@ footer a:hover{color:var(--gold)}
   Irena Beauty Studio · Бургас, ул. „Любен Каравелов“ 15 · <a href="tel:+359882868822">+359 88 286 8822</a> · <a href="viber://chat?number=%2B359882868822">Viber</a> · <a href="https://www.facebook.com/profile.php?id=61592300043325" target="_blank" rel="noopener">Facebook</a> · <a href="https://www.google.com/maps/place/Irena+Beauty+Studio/@42.4995129,27.4697753,17z/data=!3m1!4b1!4m6!3m5!1s0x40a69512928afc09:0x32889e9de14c91b3!8m2!3d42.4995129!4d27.4697753!16s%2Fg%2F11ntpxrgth" target="_blank" rel="noopener">Google отзиви</a>
 </footer>
 
-<dialog class="video-lightbox" id="videoLightbox">
-  <video id="videoLightboxPlayer" muted loop playsinline controls></video>
-</dialog>
-<button class="video-lightbox__close" id="vlClose" aria-label="Затвори" hidden>&times;</button>
-
 <script>
 document.getElementById('bookForm').addEventListener('submit', async e => {
   e.preventDefault();
@@ -591,32 +586,6 @@ if (!reduceMotion && 'IntersectionObserver' in window) {
 } else {
   document.querySelectorAll('.reveal').forEach(el => el.classList.add('is-visible'));
 }
-
-const vl = document.getElementById('videoLightbox');
-const vlPlayer = document.getElementById('videoLightboxPlayer');
-const vlClose = document.getElementById('vlClose');
-function openVideoLightbox(src, poster) {
-  vlPlayer.src = src;
-  if (poster) vlPlayer.poster = poster;
-  vl.showModal();
-  vlClose.hidden = false;
-  vlPlayer.play().catch(() => {});
-}
-function closeVideoLightbox() {
-  vl.close();
-  vlPlayer.pause();
-  vlPlayer.removeAttribute('src');
-  vlClose.hidden = true;
-}
-document.querySelectorAll('.swatch, .process-clip video').forEach(v => {
-  v.addEventListener('click', () => {
-    const src = v.dataset.src || v.currentSrc || v.src;
-    if (src) openVideoLightbox(src, v.getAttribute('poster'));
-  });
-});
-vlClose.addEventListener('click', closeVideoLightbox);
-vl.addEventListener('click', e => { if (e.target === vl) closeVideoLightbox(); });
-vl.addEventListener('cancel', closeVideoLightbox);
 
 const navLinks = document.querySelectorAll('.top__nav a[href^="#"]');
 const navSections = [...navLinks].map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
