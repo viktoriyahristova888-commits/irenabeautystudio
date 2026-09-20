@@ -19,7 +19,7 @@
   --gutter:clamp(20px,4.5vw,64px);
   --header-h:78px;
   --header-h-mobile:60px;
-  --book-bar-h:64px;
+  --book-bar-h:48px;
 }
 
 *{box-sizing:border-box}
@@ -49,6 +49,7 @@ h1,h2,h3,h4{font-family:var(--sans);font-weight:700;letter-spacing:-.01em;text-w
 .container--narrow{max-width:var(--container-narrow)}
 .section{padding:clamp(56px,9vw,120px) var(--gutter);max-width:var(--container);margin:0 auto}
 .section--dark{background:var(--ink);color:var(--ivory)}
+.section--dark h1,.section--dark h2,.section--dark h3,.section--dark h4{color:var(--ivory)}
 .section--dark .eyebrow{color:var(--stone)}
 .section--dark .lead{color:rgba(246,244,240,.72)}
 .section-head{max-width:640px;margin:0 0 40px}
@@ -133,7 +134,7 @@ dialog.nav-overlay::backdrop{background:rgba(17,17,17,.7)}
 @media(max-width:760px){
   .book-bar{position:fixed;left:0;right:0;bottom:0;z-index:50;display:flex;align-items:stretch;background:var(--ink);border-top:1px solid var(--line-dark);padding-bottom:env(safe-area-inset-bottom,0px)}
   .book-bar a{flex:1;justify-content:center;border-radius:0;padding:17px 20px;border:0}
-  body{padding-bottom:calc(var(--book-bar-h) + env(safe-area-inset-bottom,0px))}
+  body:has(.book-bar){padding-bottom:calc(var(--book-bar-h) + env(safe-area-inset-bottom,0px))}
 }
 
 /* ---------- hero ---------- */
