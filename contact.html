@@ -11,7 +11,7 @@
 <link rel="icon" href="favicon-16x16.png" type="image/png" sizes="16x16">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#171513">
+<meta name="theme-color" content="#111111">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Irena Beauty Studio">
 <meta property="og:title" content="Контакти — Irena Beauty Studio">
@@ -24,32 +24,47 @@
 <meta name="twitter:image" content="https://viktoriyahristova888-commits.github.io/irenabeautystudio/images/og-image.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <style>
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:start}
-.facts{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:22px 0 0;padding:0;font-size:13px}
+.contact-split{display:grid;grid-template-columns:1fr 1fr}
+.contact-split__media{position:relative;min-height:100vh}
+.contact-split__media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 25%}
+.contact-split__content{padding:calc(var(--header-h) + 56px) var(--gutter) 64px;display:flex;flex-direction:column;justify-content:center}
+.contact-split__content .lead{max-width:44ch}
+.contact-split__content h1{font-family:var(--serif);font-weight:500;font-size:clamp(2.2rem,4.4vw,3.4rem);line-height:1.02;margin-top:12px}
+
+.facts{display:grid;grid-template-columns:1fr 1fr;gap:22px 18px;margin:28px 0 0;padding:0;font-size:13.5px}
 .facts>div{margin:0}
-.facts dt{color:var(--gold);font-size:10px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:5px}
-.facts dd{margin:0}
-.facts a:hover{color:var(--gold)}
-.map-embed{margin-top:22px;border:1px solid var(--line);line-height:0}
-.map-embed iframe{width:100%;height:220px;display:block;filter:invert(92%) hue-rotate(180deg) contrast(90%)}
-.form{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.form label{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#bfb3a6}
+.facts dt{color:var(--taupe);font-size:10px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:6px;font-weight:700}
+.facts dd{margin:0;font-weight:600}
+.facts a:hover{color:var(--ink)}
+
+.map-embed{margin-top:26px;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);line-height:0}
+.map-embed iframe{width:100%;height:220px;display:block}
+
+.form{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:44px;padding-top:36px;border-top:1px solid var(--line)}
+.form label{font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:#8a8580}
 .form label:last-of-type,.form button,.form__msg{grid-column:1/-1}
-.form input,.form select,.form textarea{width:100%;display:block;margin-top:7px;padding:12px;background:#26211e;color:#fff;border:1px solid var(--line);border-radius:2px;font-size:14px;outline:none;font-family:var(--sans)}
+.form input,.form select,.form textarea{width:100%;display:block;margin-top:9px;padding:11px 2px;background:transparent;color:var(--ink);border:0;border-bottom:1px solid var(--line);border-radius:0;font-size:14.5px;outline:none;font-family:var(--sans);transition:border-color .2s ease}
+.form select{cursor:pointer}
 .form input[name="_honeypot"]{width:1px;height:1px;padding:0;margin:0;border:0}
 .form textarea{min-height:80px;resize:vertical}
-.form input:focus,.form select:focus,.form textarea:focus{border-color:var(--gold)}
-.form__msg{display:none;font-size:13px;color:#dfbe91;padding-top:6px}
+.form input:focus,.form select:focus,.form textarea:focus{border-color:var(--ink)}
+.form__msg{display:none;font-size:13px;color:var(--taupe);padding-top:6px}
 .form__msg.show{display:block}
-@media(max-width:900px){
-  .contact-grid{grid-template-columns:1fr;gap:40px}
+.form button{margin-top:6px;width:max-content}
+
+@media(max-width:1024px){
+  .contact-split{grid-template-columns:1fr}
+  .contact-split__media{min-height:52vh}
+  .contact-split__content{padding-top:48px}
 }
 @media(max-width:760px){
+  .contact-split__media{min-height:42vh}
+  .contact-split__content{padding:40px 20px 48px}
   .facts{grid-template-columns:1fr}
-  .form{grid-template-columns:1fr}
+  .form{grid-template-columns:1fr;margin-top:32px;padding-top:28px}
   .form label:last-of-type,.form button,.form__msg{grid-column:auto}
   .map-embed iframe{height:180px}
 }
@@ -81,8 +96,8 @@
 </head>
 <body>
 
-<header class="top">
-  <a class="logo" href="index.html">Irena <em>Beauty</em></a>
+<header class="top top--solid">
+  <a class="logo" href="index.html">Irena <span>Beauty Studio</span></a>
   <nav class="top__nav" aria-label="Основна навигация">
     <a href="services.html">Услуги</a>
     <a href="extensions.html">Екстеншъни</a>
@@ -92,34 +107,57 @@
   </nav>
   <div class="top__actions">
     <a class="top__phone" href="tel:+359882868822">+359 88 286 8822</a>
-    <a class="btn btn--gold btn--sm" href="#book">Запази час</a>
+    <a class="btn btn--ink btn--sm" href="#book">Запази час</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Отвори меню" aria-expanded="false" aria-controls="navOverlay">
+      <span></span><span></span>
+    </button>
   </div>
 </header>
 
-<section class="hero">
-  <div class="hero__bg"><img src="images/hero-contact.webp" alt="Входът на Irena Beauty Studio" width="1800" height="1005" fetchpriority="high"></div>
-  <div class="hero__content">
-    <div class="kicker">Записване</div>
+<dialog class="nav-overlay" id="navOverlay">
+  <div class="nav-overlay__inner">
+    <div class="nav-overlay__top">
+      <a class="logo" href="index.html">Irena <span>Beauty Studio</span></a>
+      <button class="nav-overlay__close" data-nav-close aria-label="Затвори меню"></button>
+    </div>
+    <ul class="nav-overlay__links">
+      <li><a href="services.html">Услуги</a></li>
+      <li><a href="extensions.html">Екстеншъни</a></li>
+      <li><a href="pricing.html">Цени</a></li>
+      <li><a href="gallery.html">Галерия</a></li>
+      <li><a href="contact.html">Контакти</a></li>
+    </ul>
+    <a class="btn btn--ivory nav-overlay__cta" href="#book">Запази час ↗</a>
+    <div class="nav-overlay__foot">
+      <a href="tel:+359882868822">+359 88 286 8822</a>
+      <a href="viber://chat?number=%2B359882868822">Viber</a>
+      <a href="https://www.facebook.com/profile.php?id=61592300043325" target="_blank" rel="noopener">Facebook</a>
+      <span>Бургас, ул. „Любен Каравелов“ 15</span>
+    </div>
+  </div>
+</dialog>
+
+<section class="contact-split" id="book">
+  <div class="contact-split__media">
+    <img src="images/hero-contact.webp" alt="Входът на Irena Beauty Studio" width="1800" height="1005" fetchpriority="high">
+  </div>
+  <div class="contact-split__content">
+    <span class="eyebrow">Записване</span>
     <h1>Избери своя час</h1>
     <p class="lead">Пиши ни с предпочитана услуга и дата. Ще потвърдим възможностите директно.</p>
-  </div>
-</section>
 
-<section class="section reveal" id="book">
-  <div class="contact-grid">
-    <div>
-      <dl class="facts">
-        <div><dt>Адрес</dt><dd>Бургас, ул. „Любен Каравелов“ 15</dd></div>
-        <div><dt>Работно време</dt><dd>Пон–Съб · 10:00–20:00</dd></div>
-        <div><dt>Телефон</dt><dd><a href="tel:+359882868822">+359 88 286 8822</a></dd></div>
-        <div><dt>Viber</dt><dd><a href="viber://chat?number=%2B359882868822">Пишете ни</a></dd></div>
-        <div><dt>Facebook</dt><dd><a href="https://www.facebook.com/profile.php?id=61592300043325" target="_blank" rel="noopener">Irena Beauty Studio</a></dd></div>
-        <div><dt>Google</dt><dd><a href="https://www.google.com/maps/place/Irena+Beauty+Studio/@42.4995129,27.4697753,17z/data=!3m1!4b1!4m6!3m5!1s0x40a69512928afc09:0x32889e9de14c91b3!8m2!3d42.4995129!4d27.4697753!16s%2Fg%2F11ntpxrgth" target="_blank" rel="noopener">Остави отзив ↗</a></dd></div>
-      </dl>
-      <div class="map-embed">
-        <iframe src="https://www.google.com/maps?q=Irena%20Beauty%20Studio%2C%20%D1%83%D0%BB.%20%D0%9B%D1%8E%D0%B1%D0%B5%D0%BD%20%D0%9A%D0%B0%D1%80%D0%B0%D0%B2%D0%B5%D0%BB%D0%BE%D0%B2%2015%2C%20%D0%91%D1%83%D1%80%D0%B3%D0%B0%D1%81&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Карта с местоположението на Irena Beauty Studio"></iframe>
-      </div>
+    <dl class="facts">
+      <div><dt>Адрес</dt><dd>Бургас, ул. „Любен Каравелов“ 15</dd></div>
+      <div><dt>Работно време</dt><dd>Пон–Съб · 10:00–20:00</dd></div>
+      <div><dt>Телефон</dt><dd><a href="tel:+359882868822">+359 88 286 8822</a></dd></div>
+      <div><dt>Viber</dt><dd><a href="viber://chat?number=%2B359882868822">Пишете ни</a></dd></div>
+      <div><dt>Facebook</dt><dd><a href="https://www.facebook.com/profile.php?id=61592300043325" target="_blank" rel="noopener">Irena Beauty Studio</a></dd></div>
+      <div><dt>Google</dt><dd><a href="https://www.google.com/maps/place/Irena+Beauty+Studio/@42.4995129,27.4697753,17z/data=!3m1!4b1!4m6!3m5!1s0x40a69512928afc09:0x32889e9de14c91b3!8m2!3d42.4995129!4d27.4697753!16s%2Fg%2F11ntpxrgth" target="_blank" rel="noopener">Остави отзив ↗</a></dd></div>
+    </dl>
+    <div class="map-embed">
+      <iframe src="https://www.google.com/maps?q=Irena%20Beauty%20Studio%2C%20%D1%83%D0%BB.%20%D0%9B%D1%8E%D0%B1%D0%B5%D0%BD%20%D0%9A%D0%B0%D1%80%D0%B0%D0%B2%D0%B5%D0%BB%D0%BE%D0%B2%2015%2C%20%D0%91%D1%83%D1%80%D0%B3%D0%B0%D1%81&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Карта с местоположението на Irena Beauty Studio"></iframe>
     </div>
+
     <form class="form" id="bookForm" action="https://formsubmit.co/irenabeauty.studio.bs@gmail.com" method="POST">
       <input type="hidden" name="_subject" value="Нова заявка за час — Irena Beauty Studio">
       <input type="hidden" name="_template" value="table">
@@ -140,16 +178,68 @@
       <label>Дата<input name="date" type="date"></label>
       <label>Съобщение<textarea name="message" placeholder="Кратко описание, добавки (напр. nail art), предпочитана дължина"></textarea></label>
       <div class="form__msg" id="formMsg">Запитването е изпратено. Ще се свържем с теб.</div>
-      <button class="btn btn--gold" type="submit">Изпрати запитване ↗</button>
+      <button class="btn btn--ink" type="submit">Изпрати запитване <span class="arrow">↗</span></button>
     </form>
   </div>
 </section>
 
-<footer>
-  Irena Beauty Studio · Бургас, ул. „Любен Каравелов“ 15 · <a href="tel:+359882868822">+359 88 286 8822</a> · <a href="viber://chat?number=%2B359882868822">Viber</a> · <a href="https://www.facebook.com/profile.php?id=61592300043325" target="_blank" rel="noopener">Facebook</a> · <a href="https://www.google.com/maps/place/Irena+Beauty+Studio/@42.4995129,27.4697753,17z/data=!3m1!4b1!4m6!3m5!1s0x40a69512928afc09:0x32889e9de14c91b3!8m2!3d42.4995129!4d27.4697753!16s%2Fg%2F11ntpxrgth" target="_blank" rel="noopener">Google отзиви</a>
+<footer class="foot">
+  <div class="foot__grid">
+    <div class="foot__brand">
+      <a class="logo" href="index.html">Irena <span>Beauty Studio</span></a>
+      <p>Екстеншъни от естествена коса, фризьорски услуги, маникюр и педикюр в Бургас.</p>
+    </div>
+    <div>
+      <h4>Навигация</h4>
+      <ul class="foot__list">
+        <li><a href="services.html">Услуги</a></li>
+        <li><a href="extensions.html">Екстеншъни</a></li>
+        <li><a href="pricing.html">Цени</a></li>
+        <li><a href="gallery.html">Галерия</a></li>
+        <li><a href="contact.html">Контакти</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Контакти</h4>
+      <ul class="foot__list">
+        <li>Бургас, ул. „Любен Каравелов“ 15</li>
+        <li>Пон–Съб · 10:00–20:00</li>
+        <li><a href="tel:+359882868822">+359 88 286 8822</a></li>
+        <li><a href="viber://chat?number=%2B359882868822">Viber</a></li>
+        <li><a href="https://www.facebook.com/profile.php?id=61592300043325" target="_blank" rel="noopener">Facebook</a></li>
+        <li><a href="https://www.google.com/maps/place/Irena+Beauty+Studio/@42.4995129,27.4697753,17z/data=!3m1!4b1!4m6!3m5!1s0x40a69512928afc09:0x32889e9de14c91b3!8m2!3d42.4995129!4d27.4697753!16s%2Fg%2F11ntpxrgth" target="_blank" rel="noopener">Google отзиви ↗</a></li>
+      </ul>
+    </div>
+  </div>
+  <span class="foot__wordmark">Irena<br>Beauty Studio</span>
+  <div class="foot__bottom">Irena Beauty Studio · Бургас, ул. „Любен Каравелов“ 15</div>
 </footer>
 
 <script>
+(function(){
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!reduceMotion && 'IntersectionObserver' in window) {
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); } });
+    }, {threshold: .12});
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  } else {
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('is-visible'));
+  }
+})();
+
+(function(){
+  const navToggle = document.getElementById('navToggle');
+  const navOverlay = document.getElementById('navOverlay');
+  if (!navToggle || !navOverlay) return;
+  const openNav = () => { navOverlay.showModal(); navToggle.setAttribute('aria-expanded','true'); };
+  const closeNav = () => { navOverlay.close(); };
+  navToggle.addEventListener('click', openNav);
+  navOverlay.querySelectorAll('[data-nav-close], a').forEach(el => el.addEventListener('click', closeNav));
+  navOverlay.addEventListener('click', e => { if (e.target === navOverlay) closeNav(); });
+  navOverlay.addEventListener('close', () => navToggle.setAttribute('aria-expanded','false'));
+})();
+
 document.getElementById('bookForm').addEventListener('submit', async e => {
   e.preventDefault();
   const f = e.currentTarget;
@@ -171,16 +261,6 @@ document.getElementById('bookForm').addEventListener('submit', async e => {
     m.textContent = 'Проблем с изпращането. Обади се на +359 88 286 8822.'; m.classList.add('show');
   }
 });
-
-const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-if (!reduceMotion && 'IntersectionObserver' in window) {
-  const io = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); } });
-  }, {threshold: .12});
-  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-} else {
-  document.querySelectorAll('.reveal').forEach(el => el.classList.add('is-visible'));
-}
 </script>
 </body>
 </html>

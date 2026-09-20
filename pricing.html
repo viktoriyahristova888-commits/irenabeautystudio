@@ -11,7 +11,7 @@
 <link rel="icon" href="favicon-16x16.png" type="image/png" sizes="16x16">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#171513">
+<meta name="theme-color" content="#111111">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Irena Beauty Studio">
 <meta property="og:title" content="Цени — Irena Beauty Studio">
@@ -24,26 +24,27 @@
 <meta name="twitter:image" content="https://viktoriyahristova888-commits.github.io/irenabeautystudio/images/og-image.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <style>
-.price-tabs{max-width:680px;margin:0 auto}
-.length-select{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:0 0 16px;padding:10px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.length-select__label{font-size:12px;color:var(--muted)}
+.price-tabs{max-width:700px;margin:0 auto}
+.length-select{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin:0 0 20px;padding:16px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.length-select__label{font-size:12px;color:#4a4642}
 .length-select__group{display:flex;gap:8px}
-.panel-title{font-size:22px;color:var(--gold);margin-bottom:6px}
-.group-title{font:500 19px var(--serif);color:var(--cream);margin:22px 0 2px}
+.length-select__group label{padding:7px 14px}
+.panel-title{font-family:var(--serif);font-style:italic;font-weight:500;font-size:26px;color:var(--ink);margin-bottom:10px}
+.group-title{font:700 12px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--taupe);margin:30px 0 4px}
 .group-title:first-of-type{margin-top:0}
 .price-list{list-style:none;margin:0 0 6px;padding:0;border-top:1px solid var(--line)}
-.price-row{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:10px 0;border-bottom:1px solid var(--line)}
-.service-name{font-size:15px}
-.service-name small{display:block;color:var(--muted);font-size:12px;margin-top:3px;line-height:1.4}
-.price{font-family:var(--serif);font-style:italic;color:var(--gold);font-size:16px;white-space:nowrap;font-variant-numeric:tabular-nums}
-.tier-prices{display:flex;gap:16px;flex-wrap:wrap;justify-content:flex-end}
-.tier{font-size:13px;color:var(--muted);white-space:nowrap}
-.tier b{color:var(--cream);font-weight:600;font-variant-numeric:tabular-nums}
-.price-row--addon{border-top:1px dashed var(--gold);margin-top:8px;padding-top:18px}
-.note{font-size:12px;color:var(--muted);max-width:520px;margin-top:20px}
+.price-row{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:14px 0;border-bottom:1px solid var(--line)}
+.service-name{font-size:15px;font-weight:600}
+.service-name small{display:block;color:#8a8580;font-size:12px;margin-top:3px;line-height:1.4;font-weight:400}
+.price{font-family:var(--serif);font-style:italic;font-weight:500;color:var(--ink);font-size:17px;white-space:nowrap;font-variant-numeric:tabular-nums}
+.tier-prices{display:flex;gap:18px;flex-wrap:wrap;justify-content:flex-end}
+.tier{font-size:13px;color:#8a8580;white-space:nowrap}
+.tier b{font-family:var(--serif);font-style:italic;font-weight:500;color:var(--ink);font-variant-numeric:tabular-nums}
+.price-row--addon{border-top:1px dashed var(--stone);margin-top:10px;padding-top:22px}
+.note{font-size:12.5px;color:#8a8580;max-width:520px;margin-top:24px}
 @supports selector(:has(a)){
   .price-tabs:has(#cat-hair:checked) .panel--hair{display:block}
   .price-tabs:has(#cat-mani:checked) .panel--mani{display:block}
@@ -52,22 +53,23 @@
   .price-tabs:has(#cat-hair:checked) label[for="cat-hair"],
   .price-tabs:has(#cat-mani:checked) label[for="cat-mani"],
   .price-tabs:has(#cat-pedi:checked) label[for="cat-pedi"],
-  .price-tabs:has(#cat-ext:checked) label[for="cat-ext"]{background:var(--gold);border-color:var(--gold);color:#1b1815}
+  .price-tabs:has(#cat-ext:checked) label[for="cat-ext"]{color:var(--ink)}
+  .price-tabs:has(#cat-hair:checked) label[for="cat-hair"]:after,
+  .price-tabs:has(#cat-mani:checked) label[for="cat-mani"]:after,
+  .price-tabs:has(#cat-pedi:checked) label[for="cat-pedi"]:after,
+  .price-tabs:has(#cat-ext:checked) label[for="cat-ext"]:after{transform:scaleX(1)}
   .panel--hair:has(#len-short:checked) .tier[data-tier="short"],
   .panel--hair:has(#len-medium:checked) .tier[data-tier="medium"],
-  .panel--hair:has(#len-long:checked) .tier[data-tier="long"]{color:var(--gold)}
+  .panel--hair:has(#len-long:checked) .tier[data-tier="long"]{color:var(--ink)}
   .panel--hair:has(#len-short:checked) .tier[data-tier="short"] b,
   .panel--hair:has(#len-medium:checked) .tier[data-tier="medium"] b,
-  .panel--hair:has(#len-long:checked) .tier[data-tier="long"] b{color:var(--gold);font-size:16px}
+  .panel--hair:has(#len-long:checked) .tier[data-tier="long"] b{font-size:18px}
   .panel--hair:has(#len-short:checked) .tier:not([data-tier="short"]),
   .panel--hair:has(#len-medium:checked) .tier:not([data-tier="medium"]),
   .panel--hair:has(#len-long:checked) .tier:not([data-tier="long"]){opacity:.4}
-  .length-select__group label[for="len-short"],
-  .length-select__group label[for="len-medium"],
-  .length-select__group label[for="len-long"]{padding:7px 14px}
   .panel--hair:has(#len-short:checked) .length-select__group label[for="len-short"],
   .panel--hair:has(#len-medium:checked) .length-select__group label[for="len-medium"],
-  .panel--hair:has(#len-long:checked) .length-select__group label[for="len-long"]{background:var(--gold);border-color:var(--gold);color:#1b1815}
+  .panel--hair:has(#len-long:checked) .length-select__group label[for="len-long"]{background:var(--ink);border-color:var(--ink);color:var(--ivory)}
 }
 @media(max-width:760px){
   .price-row{flex-direction:column;align-items:flex-start;gap:6px}
@@ -78,7 +80,7 @@
 <body>
 
 <header class="top">
-  <a class="logo" href="index.html">Irena <em>Beauty</em></a>
+  <a class="logo" href="index.html">Irena <span>Beauty Studio</span></a>
   <nav class="top__nav" aria-label="Основна навигация">
     <a href="services.html">Услуги</a>
     <a href="extensions.html">Екстеншъни</a>
@@ -88,16 +90,44 @@
   </nav>
   <div class="top__actions">
     <a class="top__phone" href="tel:+359882868822">+359 88 286 8822</a>
-    <a class="btn btn--gold btn--sm" href="contact.html">Запази час</a>
+    <a class="btn btn--ink btn--sm" href="contact.html">Запази час</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Отвори меню" aria-expanded="false" aria-controls="navOverlay">
+      <span></span><span></span>
+    </button>
   </div>
 </header>
+<span id="topSentinel" class="sentinel"></span>
 
-<section class="hero">
-  <div class="hero__bg"><img src="images/hero-pricing.webp" alt="Стилизираща зона в Irena Beauty Studio" width="1424" height="1800" fetchpriority="high"></div>
+<dialog class="nav-overlay" id="navOverlay">
+  <div class="nav-overlay__inner">
+    <div class="nav-overlay__top">
+      <a class="logo" href="index.html">Irena <span>Beauty Studio</span></a>
+      <button class="nav-overlay__close" data-nav-close aria-label="Затвори меню"></button>
+    </div>
+    <ul class="nav-overlay__links">
+      <li><a href="services.html">Услуги</a></li>
+      <li><a href="extensions.html">Екстеншъни</a></li>
+      <li><a href="pricing.html">Цени</a></li>
+      <li><a href="gallery.html">Галерия</a></li>
+      <li><a href="contact.html">Контакти</a></li>
+    </ul>
+    <a class="btn btn--ivory nav-overlay__cta" href="contact.html">Запази час ↗</a>
+    <div class="nav-overlay__foot">
+      <a href="tel:+359882868822">+359 88 286 8822</a>
+      <a href="viber://chat?number=%2B359882868822">Viber</a>
+      <a href="https://www.facebook.com/profile.php?id=61592300043325" target="_blank" rel="noopener">Facebook</a>
+      <span>Бургас, ул. „Любен Каравелов“ 15</span>
+    </div>
+  </div>
+</dialog>
+
+<section class="hero hero--short">
+  <div class="hero__media"><img src="images/hero-pricing.webp" alt="Стилизираща зона в Irena Beauty Studio" width="1424" height="1800" fetchpriority="high"></div>
+  <div class="hero__scrim"></div>
   <div class="hero__content">
-    <div class="kicker">Цени</div>
+    <span class="eyebrow">Цени</span>
     <h1>Цени</h1>
-    <p class="lead">Всички цени са в евро. Крайната цена за екстеншъни се определя на консултация според метода и количеството коса.</p>
+    <p class="lead lead--on-dark">Всички цени са в евро. Крайната цена за екстеншъни се определя на консултация според метода и количеството коса.</p>
   </div>
 </section>
 
@@ -226,29 +256,84 @@
 <div class="cta-band reveal">
   <h2>Готова за твоя час?</h2>
   <p class="lead">Запази час директно или прати ни запитване — ще потвърдим бързо.</p>
-  <a class="btn btn--gold" href="contact.html">Запази час ↗</a>
+  <a class="btn btn--ivory" href="contact.html">Запази час <span class="arrow">↗</span></a>
 </div>
 
-<footer>
-  Irena Beauty Studio · Бургас, ул. „Любен Каравелов“ 15 · <a href="tel:+359882868822">+359 88 286 8822</a> · <a href="viber://chat?number=%2B359882868822">Viber</a> · <a href="https://www.facebook.com/profile.php?id=61592300043325" target="_blank" rel="noopener">Facebook</a> · <a href="https://www.google.com/maps/place/Irena+Beauty+Studio/@42.4995129,27.4697753,17z/data=!3m1!4b1!4m6!3m5!1s0x40a69512928afc09:0x32889e9de14c91b3!8m2!3d42.4995129!4d27.4697753!16s%2Fg%2F11ntpxrgth" target="_blank" rel="noopener">Google отзиви</a>
+<footer class="foot">
+  <div class="foot__grid">
+    <div class="foot__brand">
+      <a class="logo" href="index.html">Irena <span>Beauty Studio</span></a>
+      <p>Екстеншъни от естествена коса, фризьорски услуги, маникюр и педикюр в Бургас.</p>
+    </div>
+    <div>
+      <h4>Навигация</h4>
+      <ul class="foot__list">
+        <li><a href="services.html">Услуги</a></li>
+        <li><a href="extensions.html">Екстеншъни</a></li>
+        <li><a href="pricing.html">Цени</a></li>
+        <li><a href="gallery.html">Галерия</a></li>
+        <li><a href="contact.html">Контакти</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Контакти</h4>
+      <ul class="foot__list">
+        <li>Бургас, ул. „Любен Каравелов“ 15</li>
+        <li>Пон–Съб · 10:00–20:00</li>
+        <li><a href="tel:+359882868822">+359 88 286 8822</a></li>
+        <li><a href="viber://chat?number=%2B359882868822">Viber</a></li>
+        <li><a href="https://www.facebook.com/profile.php?id=61592300043325" target="_blank" rel="noopener">Facebook</a></li>
+        <li><a href="https://www.google.com/maps/place/Irena+Beauty+Studio/@42.4995129,27.4697753,17z/data=!3m1!4b1!4m6!3m5!1s0x40a69512928afc09:0x32889e9de14c91b3!8m2!3d42.4995129!4d27.4697753!16s%2Fg%2F11ntpxrgth" target="_blank" rel="noopener">Google отзиви ↗</a></li>
+      </ul>
+    </div>
+  </div>
+  <span class="foot__wordmark">Irena<br>Beauty Studio</span>
+  <div class="foot__bottom">Irena Beauty Studio · Бургас, ул. „Любен Каравелов“ 15</div>
 </footer>
 
+<div class="book-bar"><a class="btn btn--ink" href="contact.html">Запази час <span class="arrow">↗</span></a></div>
+
 <script>
+(function(){
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!reduceMotion && 'IntersectionObserver' in window) {
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); } });
+    }, {threshold: .12});
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  } else {
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('is-visible'));
+  }
+})();
+
 const hashCat = location.hash.replace('#', '');
 if (['cat-hair', 'cat-mani', 'cat-pedi', 'cat-ext'].includes(hashCat)) {
   const radio = document.getElementById(hashCat);
   if (radio) radio.checked = true;
 }
 
-const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-if (!reduceMotion && 'IntersectionObserver' in window) {
-  const io = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); } });
-  }, {threshold: .12});
-  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-} else {
-  document.querySelectorAll('.reveal').forEach(el => el.classList.add('is-visible'));
-}
+(function(){
+  const topBar = document.querySelector('.top');
+  const sentinel = document.getElementById('topSentinel');
+  if (topBar && sentinel && 'IntersectionObserver' in window) {
+    const hio = new IntersectionObserver(([e]) => {
+      topBar.classList.toggle('top--solid', !e.isIntersecting);
+    }, {threshold: 0});
+    hio.observe(sentinel);
+  }
+})();
+
+(function(){
+  const navToggle = document.getElementById('navToggle');
+  const navOverlay = document.getElementById('navOverlay');
+  if (!navToggle || !navOverlay) return;
+  const openNav = () => { navOverlay.showModal(); navToggle.setAttribute('aria-expanded','true'); };
+  const closeNav = () => { navOverlay.close(); };
+  navToggle.addEventListener('click', openNav);
+  navOverlay.querySelectorAll('[data-nav-close], a').forEach(el => el.addEventListener('click', closeNav));
+  navOverlay.addEventListener('click', e => { if (e.target === navOverlay) closeNav(); });
+  navOverlay.addEventListener('close', () => navToggle.setAttribute('aria-expanded','false'));
+})();
 </script>
 </body>
 </html>
