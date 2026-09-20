@@ -39,6 +39,7 @@
 .form label{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#bfb3a6}
 .form label:last-of-type,.form button,.form__msg{grid-column:1/-1}
 .form input,.form select,.form textarea{width:100%;display:block;margin-top:7px;padding:12px;background:#26211e;color:#fff;border:1px solid var(--line);border-radius:2px;font-size:14px;outline:none;font-family:var(--sans)}
+.form input[name="_honeypot"]{width:1px;height:1px;padding:0;margin:0;border:0}
 .form textarea{min-height:80px;resize:vertical}
 .form input:focus,.form select:focus,.form textarea:focus{border-color:var(--gold)}
 .form__msg{display:none;font-size:13px;color:#dfbe91;padding-top:6px}
@@ -123,6 +124,7 @@
       <input type="hidden" name="_subject" value="Нова заявка за час — Irena Beauty Studio">
       <input type="hidden" name="_template" value="table">
       <input type="hidden" name="_captcha" value="false">
+      <input type="text" name="_honeypot" class="vh-radio" tabindex="-1" autocomplete="off">
       <label>Име<input name="name" required placeholder="Твоето име"></label>
       <label>Телефон<input name="phone" required placeholder="+359 ..."></label>
       <label>Услуга<select name="service">
