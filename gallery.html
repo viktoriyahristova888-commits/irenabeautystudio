@@ -29,15 +29,11 @@
 <style>
 .section--gallery{padding:clamp(40px,7vw,72px) var(--gutter);max-width:1400px;margin:0 auto}
 
-/* editorial masthead: translucent title screened over the photo picker (desktop);
-   stacked plainly above it on mobile so nothing gets clipped either way */
+/* editorial masthead: oversized italic title stacked above the photo picker */
 .gmast{max-width:1400px;margin:0 auto;padding:calc(var(--header-h) + 32px) var(--gutter) 0}
 .gmast__kicker{text-align:center;margin-bottom:18px}
 .gmast__stage{position:relative}
-.gmast__title{font-family:var(--serif);font-style:italic;font-weight:500;font-size:clamp(2.4rem,9vw,6rem);line-height:.92;letter-spacing:-.02em;text-align:center;margin:0 0 18px;color:var(--ink)}
-@media(min-width:881px){
-  .gmast__title{position:absolute;inset:0;z-index:3;margin:0;display:flex;align-items:center;justify-content:center;font-size:clamp(4.5rem,13vw,9.5rem);color:rgba(246,244,240,.88);mix-blend-mode:screen;pointer-events:none}
-}
+.gmast__title{font-family:var(--serif);font-style:italic;font-weight:500;font-size:clamp(2.4rem,9vw,7rem);line-height:.92;letter-spacing:-.02em;text-align:center;margin:0 0 34px;color:var(--ink)}
 
 .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;transition:opacity .18s ease}
 .grid--fade{opacity:0}
